@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: **University of Colorado Boulder** • **2024 Boettcher Scholar**
+subtitle: "**University of Colorado Boulder** • **2024 Boettcher Scholar**"
 
 profile:
   align: right
@@ -25,6 +25,7 @@ latest_posts:
   enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
+  
 ---
 
 I'm an honors Computer Science & Economics at the University of Colorado Boulder. 

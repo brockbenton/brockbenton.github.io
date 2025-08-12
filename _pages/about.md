@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: "**University of Colorado Boulder** • **2024 Boettcher Scholar**"
+subtitle: <strong>University of Colorado Boulder</strong> • <strong>2024 Boettcher Scholar</strong>
 
 profile:
   align: right

@@ -459,7 +459,7 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%62%72%6F%63%6B%62%65%6E%74%6F%6E%73@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+          window.open("mailto:%62%72%6F%63%6B.%62%65%6E%74%6F%6E@%63%6F%6C%6F%72%61%64%6F.%65%64%75", "_blank");
         },
       },{
         id: 'social-github',
@@ -469,11 +469,11 @@ ninja.data = [{
           window.open("https://github.com/brockbenton", "_blank");
         },
       },{
-        id: 'social-medium',
-        title: 'Medium',
+        id: 'social-linkedin',
+        title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://medium.com/@imbrock", "_blank");
+          window.open("https://www.linkedin.com/in/brockbenton", "_blank");
         },
       },{
       id: 'light-theme',

@@ -27,4 +27,4 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm an honors Computer Science and Economics student at the University of Colorado Boulder.
+I'm an honors Computer Science & Economics at the University of Colorado Boulder. 

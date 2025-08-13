@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: false # includes a list of news items
+  enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -28,17 +28,12 @@ latest_posts:
   
 ---
 
-I am an honors Computer Science and Economics student at the University of Colorado Boulder. Within the Computer Science department, I am the Head of Academics for the CS Undergraduate Advising Committee (CSUAC). Additionally, I am apart of the Blockchain club and an active participant in intramural soccer and casual rock climbing. 
+I am an honors Computer Science and Economics student at the University of Colorado Boulder. Within the Computer Science department, I am the Head of Academics for the CS Undergraduate Advising Committee (CSUAC). Additionally, I am apart of the Blockchain club and an active participant casual rock climbing. 
 
 As of August 2025, I finished my third summer at Alamosa School District working in the information technology department. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome's FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members. 
 
 I am currently exploring topics at the intersection of theory and systems. I have particularly enjoyed learning about blockchain technologies, Linux-based development, and algorithmic economics, and I am interested in how formal models and real-world infrastructure can inform each other.
 
 Outside of school, I run my own clothing store via Depop (and sometimes eBay) which you can check out <a href="https://depop.com/imbrock">@imbrock</a>.
-
-Tab Directory:
-- <a href="https://brockbenton.github.io/notes/">notes</a> - documentation for personal research
-- <a href="https://brockbenton.github.io/projects/">projects</a> - current work
-- <a href="https://brockbenton.github.io/cv/">cv</a> - course of life
 
 

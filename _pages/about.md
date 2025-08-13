@@ -28,7 +28,7 @@ latest_posts:
   
 ---
 
-I am an honors Computer Science and Economics student at the University of Colorado Boulder. Within the Computer Science department, I am the Head of Academics for the CS Undergraduate Advising Committee (CSUAC). Additionally, I am apart of the Blockchain club and an active participant casual rock climbing. 
+I am an honors Computer Science and Economics student at the University of Colorado Boulder. Within the Computer Science department, I am the Head of Academics for the CS Undergraduate Advising Committee (CSUAC). Additionally, I am apart of the Blockchain club and an active participant in casual rock climbing. 
 
 As of August 2025, I finished my third summer at Alamosa School District working in the information technology department. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome's FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members. 
 

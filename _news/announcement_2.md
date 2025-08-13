@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I had the opportunity to compete in the 2025 Daniels Fund National Ethics Case Competition where my team and I applied ethical principles to real-world business challenges, navigating complex scenarios where moral values and business interests collide.
+I had the opportunity to compete in the 2025 <a href="https://www.danielsfund.org/CaseCompetition">Daniels Fund National Ethics Case Competition</a> where my team and I applied ethical principles to real-world business challenges, navigating complex scenarios where moral values and business interests collide.

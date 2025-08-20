@@ -15,8 +15,13 @@
       institution: University of Colorado Boulder
       year: 2024-Present
       description:
-        - Area of Study: Computer Science and Economics
-        - Courses: Data Structures, Introduction to C++, Microeconomics, Macroeconomics
+        - Major:
+          - Computer Science & Economics
+        - Courses: 
+          - Data Structures
+          - Introduction to C++
+          - Microeconomics
+          - Macroeconomics
 
 - title: Experience
   type: time_table
@@ -26,7 +31,10 @@
       year: 2023-2025
       description:
         - Managed repairs and cloning/imaging services for 3000+ laptops/desktops supporting 2100+ students and 440+ staff members.
-        - Tools: IncidentIQ, FOG Project, ChromeOS
+        - Tools: 
+          - IncidentIQ
+          - The FOG Project 
+          - ChromeOS
 
 - title: Volunteer Experience
   type: time_table
@@ -44,26 +52,4 @@
   contents:
     - year: 2024
       items:
-        - Boettcher Scholarship
-    - year: 2024
-      items:
-        - Awarded by the Boettcher Foundation
-        - Full-ride scholarship to University of Colorado Boulder
-
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Computer Science
-      items:
-        - Data Structures
-        - Algorithms
-        - Software Engineering
-    - title: Economics
-      items:
-        - Microeconomics
-        - Macroeconomics
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Coding, Mental Health Advocacy, Volunteering, Outdoor Activities
+        - Boettcher Scholarship (Full-ride scholarship to the University of Colorado Boulder)

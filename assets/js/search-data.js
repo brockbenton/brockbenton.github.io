@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/resume.pdf";
           },
-        },{id: "books-the-godfather",
+        },{id: "post-welcome-to-al-folio",
+        
+          title: "Welcome to Al-Folio!",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/test-post/";
+          
+        },
+      },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {

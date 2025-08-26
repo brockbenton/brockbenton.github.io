@@ -16,12 +16,12 @@
       year: 2024-Present
       description:
         - Major:
-          - Computer Science & Economics
-        - Courses: 
-          - Data Structures
-          - Introduction to C++
-          - Microeconomics
-          - Macroeconomics
+            - Computer Science & Economics
+        - Courses:
+            - Data Structures
+            - Introduction to C++
+            - Microeconomics
+            - Macroeconomics
 
 - title: Experience
   type: time_table
@@ -31,10 +31,10 @@
       year: 2023-2025
       description:
         - Managed repairs and cloning/imaging services for 3000+ laptops/desktops supporting 2100+ students and 440+ staff members.
-        - Tools: 
-          - IncidentIQ
-          - The FOG Project 
-          - ChromeOS
+        - Tools:
+            - IncidentIQ
+            - The FOG Project
+            - ChromeOS
 
 - title: Volunteer Experience
   type: time_table

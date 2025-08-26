@@ -3,7 +3,7 @@
     "name": "Brock Benton",
     "label": "Undergraduate Student | '24 Boettcher Scholar",
     "image": "",
-    "email": "brock.benton@colorado.edu",
+    "email": "brock.benton@colorado.edu"
   },
   "education": [
     {
@@ -33,7 +33,10 @@
       "startDate": "2022-01",
       "endDate": "2024-08",
       "summary": "Led a national youth-driven initiative to destigmatize mental health and promote student-supported first aid through advocacy",
-      "highlights": ["Presenter at the Aurora Institute Symposium in Palm Springs, California", "Awarded over $8,000 in grants from the Colorado Education Initiative"]
+      "highlights": [
+        "Presenter at the Aurora Institute Symposium in Palm Springs, California",
+        "Awarded over $8,000 in grants from the Colorado Education Initiative"
+      ]
     }
   ],
   "awards": [

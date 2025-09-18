@@ -14,7 +14,7 @@ ninja.data = [{
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/assets/pdf/resume/resume.pdf";
+            window.location.href = "/assets/pdf/resume/jtresume.pdf";
           },
         },{id: "post-welcome-to-al-folio",
         

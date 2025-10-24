@@ -23,11 +23,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/jtresume.pdf";
           },
-        },{id: "post-presentation-on-utility-tokens",
+        },{id: "post-utility-tokens-as-a-commitment-to-competition-a-presentation-summary",
         
-          title: "Presentation on Utility Tokens",
+          title: "Utility Tokens as a Commitment to Competition: A Presentation Summary",
         
-        description: "",
+        description: "A brief summary of &quot;Utility Tokens as a Commitment to Competition&quot; by Goldstein et al. for CSCI 4831-801",
         section: "Posts",
         handler: () => {
           

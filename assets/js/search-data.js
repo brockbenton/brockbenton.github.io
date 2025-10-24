@@ -34,17 +34,6 @@ ninja.data = [{
             window.location.href = "/blog/2025/utcc/";
           
         },
-      },{id: "post-utility-tokens-as-a-commitment-to-competition-a-presentation-summary",
-        
-          title: "Utility Tokens as a Commitment to Competition: A Presentation Summary",
-        
-        description: "A brief summary of &quot;Utility Tokens as a Commitment to Competition&quot; by Goldstein et al. for CSCI 4831-801",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/test-post/";
-          
-        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",

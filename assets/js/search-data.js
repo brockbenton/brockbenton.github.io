@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/jtresume.pdf";
           },
-        },{id: "post-welcome-to-al-folio",
+        },{id: "post-presentation-on-utility-tokens",
         
-          title: "Welcome to Al-Folio!",
+          title: "Presentation on Utility Tokens",
         
         description: "",
         section: "Posts",

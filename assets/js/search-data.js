@@ -52,11 +52,11 @@ ninja.data = [{
           section: "News",},{id: "news-i-had-the-opportunity-to-compete-in-the-2025-daniels-fund-national-ethics-case-competition-where-my-team-and-i-applied-ethical-principles-to-real-world-business-challenges-navigating-complex-scenarios-where-moral-values-and-business-interests-collide",
           title: 'I had the opportunity to compete in the 2025 Daniels Fund National Ethics...',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-git-infastructure-with-ci-cd-pipeline",
+          title: 'Git Infastructure with CI/CD Pipeline',
+          description: "A fully-fledged self-hosted Git server with enterprise-grade automation capabilities.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
+              window.location.href = "/projects/githomelab/";
             },},{
         id: 'social-email',
         title: 'email',

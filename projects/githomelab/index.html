@@ -1,3 +1,647 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Git Infastructure with CI/CD Pipeline | Brock Benton </title> <meta name="author" content="Brock Benton"> <meta name="description" content="A fully-fledged self-hosted Git server with enterprise-grade automation capabilities."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%93%9A&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://brockbenton.github.io/projects/githomelab/"> <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Brock</span> Benton </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/notes/index.html">notes </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/assets/pdf/resume/jtresume.pdf">resume </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Git Infastructure with CI/CD Pipeline</h1> <p class="post-description">A fully-fledged self-hosted Git server with enterprise-grade automation capabilities.</p> </header> <article> <p>toadd</p> </article> <h2>References</h2> <div class="publications"> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Brock Benton. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: November 17, 2025. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> </body> </html>
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Brock</span> Benton </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/notes/index.html">notes </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/assets/pdf/resume/jtresume.pdf">resume </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Git Infastructure with CI/CD Pipeline</h1> <p class="post-description">A fully-fledged self-hosted Git server with enterprise-grade automation capabilities.</p> </header> <article> <h1 id="git-infrastructure-with-automated-cicd-pipeline">Git Infrastructure with Automated CI/CD Pipeline</h1> <p>The goal of this project is to develop a fully-fledged self-hosted Git server with enterprise-grade automation capabilities. By building this infrastructure from scratch, I learned containerization, reverse proxy configuration, CI/CD pipeline design, and event-driven deployment automation.</p> <p>The project is split into two distinct phases: the first phase in which I create a bare Git repository with terminal workflows and SSH access, and the second phase in which I migrate the bare repository to Gitea and incorporate a reverse proxy, webhooks, and a CI/CD pipeline.</p> <p>I have wrote the following in a tutorial-based manner in which, if you’d like to, you can follow along and learn as I do! I try to be thorough enough to distill each concept while also keeping it decently simplified for the sake of length.</p> <p>If you find any issues with the write up, please feel free to contact me via the methods linked in the footer of the website.</p> <hr> <h1 id="phase-1-bare-repository-with-ssh-access">Phase 1: Bare Repository with SSH Access</h1> <h2 id="initial-server-setup">Initial Server Setup</h2> <p>I started out by using Balena Etcher to flash a version of Ubuntu Server that will replace Windows 10 on my desktop.</p> <p><strong>After booting up, install essential packages:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> git openssh-server ufw
+<span class="nb">sudo </span>ufw <span class="nb">enable
+sudo </span>ufw allow ssh
+</code></pre></div></div> <p><strong>What each package does:</strong></p> <ul> <li> <strong><code class="language-plaintext highlighter-rouge">git</code></strong> - Version control system for managing code repositories</li> <li> <strong><code class="language-plaintext highlighter-rouge">openssh-server</code></strong> - Enables remote SSH connections to the server, allowing control from anywhere</li> <li> <strong><code class="language-plaintext highlighter-rouge">ufw</code></strong> (Uncomplicated Firewall) - Protects network “ports” (entry points) on the system</li> </ul> <p><strong>Why a firewall matters:</strong></p> <p>Without UFW, all ports are open by default:</p> <ul> <li>Port 22 (SSH)</li> <li>Port 80 (HTTP)</li> <li>Port 443 (HTTPS)</li> <li>Thousands of others</li> </ul> <p>With UFW enabled, all doors are locked except the ones you explicitly allow. This prevents unauthorized access attempts.</p> <hr> <h2 id="creating-a-dedicated-git-user">Creating a Dedicated Git User</h2> <p><strong>Create isolated git user account:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>adduser <span class="nt">--disabled-password</span> <span class="nt">--gecos</span> <span class="s2">"Git Version Control"</span> git
+</code></pre></div></div> <p><strong>Why a separate user?</strong></p> <p>This isolates all repositories under one account instead of using root (security best practice). Multiple developers can access the same <code class="language-plaintext highlighter-rouge">git</code> user without sharing root credentials.</p> <hr> <h2 id="ssh-key-authentication">SSH Key Authentication</h2> <p><strong>Generate SSH key pair:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"youremail@email.com"</span>
+</code></pre></div></div> <p><strong>Breaking down the command:</strong></p> <ul> <li> <code class="language-plaintext highlighter-rouge">ssh-keygen</code> - SSH key generator tool</li> <li> <code class="language-plaintext highlighter-rouge">-t ed25519</code> - Encryption algorithm type (modern, fast, secure)</li> <li> <code class="language-plaintext highlighter-rouge">-C "youremail@email.com"</code> - Label/comment for the key</li> </ul> <p><strong>How SSH public-key cryptography works:</strong></p> <p>SSH uses asymmetric encryption, generating two mathematically linked keys:</p> <ol> <li> <strong>Private key</strong> (<code class="language-plaintext highlighter-rouge">id_ed25519</code>) - Never share, stays on your machine</li> <li> <strong>Public key</strong> (<code class="language-plaintext highlighter-rouge">id_ed25519.pub</code>) - Can be shared freely</li> </ol> <p><strong>The mathematical relationship:</strong></p> <ul> <li>Data encrypted with the public key can <strong>only</strong> be decrypted by the private key</li> <li>Data signed with the private key can <strong>only</strong> be verified by the public key</li> <li>The private key <strong>cannot</strong> be derived from the public key</li> </ul> <p>This provides secure, password-less authentication.</p> <hr> <h2 id="configuring-ssh-access">Configuring SSH Access</h2> <p><strong>Switch to the git user and set up SSH directory:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su - git
+</code></pre></div></div> <p><strong>Run the following commands:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/.ssh
+<span class="nb">chmod </span>700 ~/.ssh
+nano ~/.ssh/authorized_keys
+<span class="c"># Paste your public key here (from `cat ~/.ssh/id_ed25519.pub`)</span>
+<span class="nb">chmod </span>600 ~/.ssh/authorized_keys
+</code></pre></div></div> <p><strong>Understanding file permissions:</strong></p> <p>The <code class="language-plaintext highlighter-rouge">chmod</code> command controls who can read, write, or execute files:</p> <ul> <li>Read (4)</li> <li>Write (2)</li> <li>Execute (1)</li> </ul> <p><strong><code class="language-plaintext highlighter-rouge">chmod 700 ~/.ssh</code></strong> means:</p> <ul> <li>7 (owner): read + write + execute = full access</li> <li>0 (group): no access</li> <li>0 (others): no access</li> </ul> <p><strong><code class="language-plaintext highlighter-rouge">chmod 600 ~/.ssh/authorized_keys</code></strong> means:</p> <ul> <li>6 (owner): read + write</li> <li>0 (group): no access</li> <li>0 (others): no access</li> </ul> <p><strong>Why strict permissions matter:</strong> SSH refuses to work if your keys are readable by others—a security feature ensuring private keys stay private.</p> <hr> <h2 id="creating-the-bare-repository">Creating the Bare Repository</h2> <p><strong>Initialize bare repository:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su - git
+<span class="nb">mkdir</span> <span class="nt">-p</span> ~/repos
+<span class="nb">cd</span> ~/repos
+git init <span class="nt">--bare</span> myproject.git
+</code></pre></div></div> <p><strong>What is a bare repository?</strong></p> <p>A bare repository contains only Git’s database—no working files. It acts as a central hub where everyone pushes and pulls code.</p> <hr> <h2 id="client-side-workflow">Client-Side Workflow</h2> <p><strong>On your client machine (laptop), configure Git identity:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"you@example.com"</span>
+</code></pre></div></div> <p><strong>Create a new project:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>clientproject
+<span class="nb">cd </span>clientproject
+git init
+</code></pre></div></div> <p><strong>Create initial files:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"# My Project"</span> <span class="o">&gt;</span> README.md
+<span class="nb">echo</span> <span class="s2">"print('Hello, World!')"</span> <span class="o">&gt;</span> main.py
+</code></pre></div></div> <p><strong>Make your first commit:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>                          <span class="c"># Stage all files</span>
+git commit <span class="nt">-m</span> <span class="s2">"Initial commit"</span>     <span class="c"># Save snapshot</span>
+</code></pre></div></div> <p><strong>Connect to the server:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@&lt;server-ip&gt;:repos/myproject.git
+</code></pre></div></div> <p><strong>Understanding the connection string:</strong></p> <ul> <li> <code class="language-plaintext highlighter-rouge">git remote</code> - Manage connections to other repositories</li> <li> <code class="language-plaintext highlighter-rouge">add</code> - Add a new remote connection</li> <li> <code class="language-plaintext highlighter-rouge">origin</code> - Name for this remote (convention)</li> <li> <code class="language-plaintext highlighter-rouge">git@&lt;server-ip&gt;:repos/myproject.git</code> - SSH connection string <ul> <li> <code class="language-plaintext highlighter-rouge">git@</code> - Username to SSH as</li> <li> <code class="language-plaintext highlighter-rouge">&lt;server-ip&gt;</code> - Server address</li> <li> <code class="language-plaintext highlighter-rouge">repos/myproject.git</code> - Path (relative to git user’s home)</li> </ul> </li> </ul> <p><strong>Push your code:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin main
+</code></pre></div></div> <p>The <code class="language-plaintext highlighter-rouge">-u</code> flag sets upstream tracking so future pushes can simply be <code class="language-plaintext highlighter-rouge">git push</code>.</p> <hr> <h2 id="complete-development-cycle">Complete Development Cycle</h2> <p><strong>The full workflow from a client machine:</strong></p> <ol> <li> <strong>Edit a file:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"print('Updated')"</span> <span class="o">&gt;&gt;</span> main.py
+</code></pre></div> </div> </li> <li> <strong>Check what changed:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>git status        <span class="c"># Shows modified files</span>
+git diff          <span class="c"># Shows exact changes</span>
+</code></pre></div> </div> </li> <li> <strong>Stage changes:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>git add main.py
+</code></pre></div> </div> </li> <li> <strong>Commit changes:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Updated main.py"</span>
+</code></pre></div> </div> </li> <li> <strong>Push to server:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div> </div> </li> </ol> <p><strong>Cloning from another machine:</strong></p> <p>Anyone with SSH access can now clone the repository:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@&lt;server-ip&gt;:repos/myproject.git
+</code></pre></div></div> <h1 id="phase-2">Phase 2</h1> <p>In Phase 1, I created a bare Git repository with terminal-based workflows and SSH access only. To advance this project, it needs to be containerized (via Docker), more accessible (with a web UI), and organized (via PostgreSQL).</p> <h2 id="containerization--gitea-ui">Containerization &amp; Gitea UI</h2> <h3 id="the-problem-docker-solves">The Problem Docker Solves</h3> <p>Imagine you want to run several applications on your server. Potential problems might include:</p> <ul> <li>Needing different versions of the same software</li> <li>Installing one might break another</li> <li>Uninstalling is messy (files are everywhere)</li> <li>Moving to a new server means reinstalling everything manually</li> </ul> <p><strong>The solution:</strong> Docker provides containerized applications that are isolated, portable, and reproducible.</p> <hr> <h3 id="understanding-containers">Understanding Containers</h3> <p><strong>What is a container?</strong></p> <p>A container acts as a lightweight virtual machine: it has its own filesystem, network, and processes but shares the host’s kernel.</p> <p><strong>Container vs Virtual Machine:</strong></p> <ul> <li> <strong>Virtual Machine:</strong> Includes full guest OS (heavy, GBs of RAM, slow startup)</li> <li> <strong>Container:</strong> Shares host OS kernel (lightweight, MBs of RAM, starts instantly)</li> </ul> <p><strong>Docker image:</strong> Contains everything needed to run the application—code, runtime, system tools, libraries, and dependencies. Images are like blueprints; containers are running instances.</p> <hr> <h3 id="installing-docker">Installing Docker</h3> <p><strong>Install Docker Engine and Docker Compose:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Docker CE, CLI, containerd, and Compose plugin</span>
+curl <span class="nt">-fsSL</span> https://get.docker.com <span class="nt">-o</span> get-docker.sh
+<span class="nb">sudo </span>sh get-docker.sh
+
+<span class="c"># Add your user to docker group (avoid needing sudo)</span>
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+</code></pre></div></div> <p><strong>Why add user to docker group?</strong></p> <p>Without this, you’d need <code class="language-plaintext highlighter-rouge">sudo</code> for every Docker command. Adding yourself to the <code class="language-plaintext highlighter-rouge">docker</code> group grants permission to manage containers.</p> <p><strong>Note:</strong> Log out and back in for group changes to take effect.</p> <hr> <h3 id="setting-up-docker-compose">Setting Up Docker Compose</h3> <p><strong>Create dedicated directory for Gitea:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/gitea-docker
+<span class="nb">cd</span> ~/gitea-docker
+</code></pre></div></div> <p><strong>What is Docker Compose?</strong></p> <p>Docker Compose orchestrates multi-container applications. Instead of running individual containers manually, Compose defines how containers work together in a single configuration file.</p> <hr> <h3 id="creating-the-docker-compose-file">Creating the Docker Compose File</h3> <p><strong>Create <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano docker-compose.yml
+</code></pre></div></div> <p><strong>This is the configuration I used:</strong></p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3"</span>
+
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">gitea</span><span class="pi">:</span>
+    <span class="na">external</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">server</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">gitea/gitea:latest</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">gitea</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">USER_UID=1000</span>
+      <span class="pi">-</span> <span class="s">USER_GID=1000</span>
+      <span class="pi">-</span> <span class="s">GITEA__database__DB_TYPE=postgres</span>
+      <span class="pi">-</span> <span class="s">GITEA__database__HOST=db:5432</span>
+      <span class="pi">-</span> <span class="s">GITEA__database__NAME=gitea</span>
+      <span class="pi">-</span> <span class="s">GITEA__database__USER=gitea</span>
+      <span class="pi">-</span> <span class="s">GITEA__database__PASSWD=gitea_password</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">gitea</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./gitea:/data</span>
+      <span class="pi">-</span> <span class="s">/etc/timezone:/etc/timezone:ro</span>
+      <span class="pi">-</span> <span class="s">/etc/localtime:/etc/localtime:ro</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">222:22"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db</span>
+
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:14</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_USER=gitea</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=gitea_password</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_DB=gitea</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">gitea</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./postgres:/var/lib/postgresql/data</span>
+</code></pre></div></div> <p><strong>Why volumes matter:</strong></p> <p>Containers are ephemeral—when deleted, all data inside is lost forever. Volumes map directories between host and container, making data persistent.</p> <hr> <h3 id="starting-the-application">Starting the Application</h3> <p><strong>Launch all services:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">-d</span>
+</code></pre></div></div> <p><strong>What happens:</strong></p> <ol> <li>Reads <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> </li> <li>Creates the <code class="language-plaintext highlighter-rouge">gitea</code> network</li> <li>Pulls images from Docker Hub (if not cached)</li> <li>Creates volume directories (<code class="language-plaintext highlighter-rouge">./gitea/</code> and <code class="language-plaintext highlighter-rouge">./postgres/</code>)</li> <li>Starts PostgreSQL container (dependency first)</li> <li>Starts Gitea container</li> <li>Detaches (<code class="language-plaintext highlighter-rouge">-d</code> flag) - runs in background</li> </ol> <p><strong>Verify containers are running:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose ps
+</code></pre></div></div> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/dcompose-480.webp 480w,/assets/img/dcompose-800.webp 800w,/assets/img/dcompose-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/dcompose.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Verify that Docker is running" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <hr> <h3 id="directory-structure-after-launch">Directory Structure After Launch</h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/gitea-docker/
+├── docker-compose.yml       # Infrastructure definition
+├── gitea/                   # Gitea's persistent data
+│   ├── git/
+│   │   └── repositories/    # Your Git repos live here!
+│   ├── gitea/
+│   │   └── conf/
+│   │       └── app.ini      # Gitea configuration
+│   └── data/                # Application data
+└── postgres/                # PostgreSQL data
+    ├── base/                # Database files
+    └── pg_wal/              # Write-ahead logs
+</code></pre></div></div> <hr> <h3 id="managing-the-application">Managing the Application</h3> <p><strong>Useful Docker Compose commands:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Stop all services (keeps data)</span>
+docker compose down
+
+<span class="c"># Start all services</span>
+docker compose up <span class="nt">-d</span>
+
+<span class="c"># Restart all services</span>
+docker compose restart
+
+<span class="c"># View resource usage</span>
+docker stats
+
+<span class="c"># Update to latest images</span>
+docker compose pull
+docker compose up <span class="nt">-d</span>
+
+<span class="c"># Remove everything INCLUDING DATA (dangerous!)</span>
+docker compose down <span class="nt">-v</span>
+</code></pre></div></div> <hr> <p><strong>Next steps:</strong> Configure Gitea through the web interface and add reverse proxy for HTTPS access.</p> <p>With the containers running, Gitea is now accessible at <code class="language-plaintext highlighter-rouge">http://YOUR_SERVER_IP:3000</code>. Navigate to this URL in a web browser to begin the initial setup.</p> <p><strong>Verify containers are running:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose ps
+</code></pre></div></div> <p><strong>Initial setup wizard:</strong></p> <p>The first time accessing Gitea, there will be an installation page. Most of the settings are already pre-configured from the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> environment variables. However, there are a few key settings to configure.</p> <p><strong>Key settings to configure:</strong></p> <ol> <li> <strong>SSH Server Port:</strong> Change from <code class="language-plaintext highlighter-rouge">22</code> to <code class="language-plaintext highlighter-rouge">222</code> (we mapped port 222 to avoid conflicts with system SSH)</li> <li> <strong>Gitea Base URL:</strong> <code class="language-plaintext highlighter-rouge">http://YOUR_SERVER_IP:3000</code> </li> <li> <strong>Administrator Account:</strong> Create your admin user (username, email, password)</li> </ol> <p>Click “Install Gitea” and the application will initialize the database and create the necessary tables.</p> <p><strong>Firewall configuration:</strong></p> <p>Open the necessary ports:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow 3000/tcp   <span class="c"># Gitea web interface</span>
+<span class="nb">sudo </span>ufw allow 222/tcp    <span class="c"># Gitea SSH for Git operations</span>
+<span class="nb">sudo </span>ufw status           <span class="c"># Verify rules</span>
+</code></pre></div></div> <p><strong>Testing the installation:</strong></p> <ol> <li>Log in with the admin account</li> <li>Create a test repository through the web UI</li> <li>Clone it locally: <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>git clone http://YOUR_SERVER_IP:3000/username/test-repo.git
+</code></pre></div> </div> </li> </ol> <h2 id="reverse-proxy-with-nginx">Reverse Proxy with Nginx</h2> <h3 id="understanding-proxy-types">Understanding Proxy Types</h3> <p><strong>Forward Proxy (hides the client):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You → Forward Proxy → Internet
+     (hides your IP)
+</code></pre></div></div> <p>When you use a forward proxy (like a VPN), it hides your identity. Websites see the proxy’s IP address, not yours.</p> <p><strong>Reverse Proxy (hides the servers):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You → Reverse Proxy → Backend Servers
+      (hides servers)
+</code></pre></div></div> <p>A reverse proxy sits in front of your servers. Users connect to the proxy, and it forwards requests to the appropriate backend service.</p> <hr> <h3 id="the-problem-without-a-reverse-proxy">The Problem Without a Reverse Proxy</h3> <p><strong>Current situation:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://192.168.1.100:3000  → Gitea
+</code></pre></div></div> <p><strong>Issues:</strong></p> <ul> <li> <strong>Ugly URLs:</strong> Must remember IP addresses and port numbers</li> <li> <strong>Not secure:</strong> HTTP transmits data in plaintext (passwords visible!)</li> <li> <strong>Complex:</strong> Each service needs its own port exposed</li> <li> <strong>No encryption:</strong> Sensitive data sent unencrypted over the network</li> <li> <strong>Unprofessional:</strong> Port numbers in URLs aren’t user-friendly</li> </ul> <hr> <h3 id="the-solution-reverse-proxy-benefits">The Solution: Reverse Proxy Benefits</h3> <p><strong>With reverse proxy:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://gitea.homelab.local  → Nginx → localhost:3000 → Gitea
+</code></pre></div></div> <p><strong>Advantages:</strong></p> <ul> <li> <strong>Clean URLs:</strong> <code class="language-plaintext highlighter-rouge">https://gitea.homelab.local</code> instead of <code class="language-plaintext highlighter-rouge">http://IP:3000</code> </li> <li> <strong>HTTPS encryption:</strong> All traffic encrypted end-to-end</li> <li> <strong>Single entry point:</strong> Only ports 80/443 need to be exposed</li> <li> <strong>Centralized management:</strong> SSL certificates, authentication, and logging in one place</li> <li> <strong>Load balancing:</strong> Distribute traffic across multiple backend servers</li> <li> <strong>Caching:</strong> Speed up responses by caching static content</li> <li> <strong>Security:</strong> Additional layer between users and applications</li> </ul> <hr> <h3 id="understanding-http-https-and-tls">Understanding HTTP, HTTPS, and TLS</h3> <p><strong>HTTP (HyperText Transfer Protocol):</strong></p> <ul> <li>Data transmitted in plaintext</li> <li>Anyone on the network can intercept and read: <ul> <li>Passwords</li> <li>Personal information</li> <li>Session tokens</li> <li>All communication</li> </ul> </li> </ul> <p><strong>HTTPS (HTTP Secure):</strong></p> <ul> <li>HTTP + TLS encryption</li> <li>All data encrypted between browser and server</li> <li>Only you and the server can decrypt the communication</li> <li>Encrypted data looks like gibberish to interceptors</li> </ul> <p><strong>Visual comparison:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP:  username=admin&amp;password=secret123
+       ↑ Readable by anyone!
+
+HTTPS: aG5kZjMyM2RzZGZoc2RmaGpzZGY=
+       ↑ Encrypted gibberish
+</code></pre></div></div> <hr> <h3 id="installing-nginx">Installing Nginx</h3> <p><strong>Install Nginx web server:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> nginx
+</code></pre></div></div> <p><strong>Verify installation:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl status nginx
+</code></pre></div></div> <hr> <h3 id="generating-ssltls-certificate">Generating SSL/TLS Certificate</h3> <p><strong>Create directory for certificates:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /etc/nginx/ssl
+</code></pre></div></div> <p><strong>Generate self-signed certificate:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>openssl req <span class="nt">-x509</span> <span class="nt">-nodes</span> <span class="nt">-days</span> 365 <span class="nt">-newkey</span> rsa:2048 <span class="se">\</span>
+  <span class="nt">-keyout</span> /etc/nginx/ssl/gitea.key <span class="se">\</span>
+  <span class="nt">-out</span> /etc/nginx/ssl/gitea.crt <span class="se">\</span>
+  <span class="nt">-subj</span> <span class="s2">"/C=US/ST=Colorado/L=Arvada/O=HomeLab/CN=gitea.homelab.local"</span>
+</code></pre></div></div> <p><strong>What gets created:</strong></p> <ul> <li> <code class="language-plaintext highlighter-rouge">/etc/nginx/ssl/gitea.key</code> - Private key (never share!)</li> <li> <code class="language-plaintext highlighter-rouge">/etc/nginx/ssl/gitea.crt</code> - Public certificate</li> </ul> <p>Note that when accessing our Gitea server, there will be a security warning for self-signed certificates. This is not a big deal since this is a home lab.</p> <hr> <h3 id="configuring-nginx">Configuring Nginx</h3> <p><strong>Create Nginx site configuration:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/nginx/sites-available/gitea
+</code></pre></div></div> <p><strong>This is the configuration I used:</strong></p> <div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Redirect HTTP to HTTPS</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">gitea.homelab.local</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># HTTPS server</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">gitea.homelab.local</span><span class="p">;</span>
+
+    <span class="c1"># SSL certificate paths</span>
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/nginx/ssl/gitea.crt</span><span class="p">;</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/nginx/ssl/gitea.key</span><span class="p">;</span>
+
+    <span class="c1"># SSL settings</span>
+    <span class="kn">ssl_protocols</span> <span class="s">TLSv1.2</span> <span class="s">TLSv1.3</span><span class="p">;</span>
+    <span class="kn">ssl_ciphers</span> <span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+
+    <span class="c1"># Proxy settings</span>
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:3000</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
+        
+        <span class="c1"># WebSocket support</span>
+        <span class="kn">proxy_http_version</span> <span class="mf">1.1</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">"upgrade"</span><span class="p">;</span>
+        
+        <span class="c1"># Increase timeouts for large pushes</span>
+        <span class="kn">proxy_read_timeout</span> <span class="s">600s</span><span class="p">;</span>
+        <span class="kn">proxy_send_timeout</span> <span class="s">600s</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <hr> <h3 id="enabling-the-nginx-configuration">Enabling the Nginx Configuration</h3> <p><strong>Create symbolic link to enable the site:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/gitea /etc/nginx/sites-enabled/
+</code></pre></div></div> <p><strong>Test Nginx configuration:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nginx <span class="nt">-t</span>
+</code></pre></div></div> <p><strong>Expected output:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div></div> <p><strong>If test passes, reload Nginx:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl reload nginx
+</code></pre></div></div> <p><strong>Enable Nginx to start on boot:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl <span class="nb">enable </span>nginx
+</code></pre></div></div> <hr> <h3 id="configuring-dns-resolution">Configuring DNS Resolution</h3> <p><strong>The problem:</strong></p> <p><code class="language-plaintext highlighter-rouge">gitea.homelab.local</code> isn’t a real domain. DNS servers don’t know about it.</p> <p><strong>The solution:</strong></p> <p>Use the <code class="language-plaintext highlighter-rouge">/etc/hosts</code> file to create a local DNS override.</p> <p><strong>On the server itself:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hosts
+</code></pre></div></div> <p><strong>Add this line:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1  gitea.homelab.local
+</code></pre></div></div> <p><strong>On your client machine (laptop):</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hosts
+</code></pre></div></div> <p><strong>Add (replace with your server’s actual IP):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.100  gitea.homelab.local
+</code></pre></div></div> <p><strong>How it works:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You type: https://gitea.homelab.local
+        ↓
+OS checks /etc/hosts first
+        ↓
+OS finds: gitea.homelab.local = 192.168.1.100
+        ↓
+Browser connects to 192.168.1.100:443
+        ↓
+Nginx receives request
+</code></pre></div></div> <hr> <h3 id="opening-firewall-ports">Opening Firewall Ports</h3> <p><strong>Allow HTTP and HTTPS traffic:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow 80/tcp    <span class="c"># HTTP</span>
+<span class="nb">sudo </span>ufw allow 443/tcp   <span class="c"># HTTPS</span>
+<span class="nb">sudo </span>ufw status          <span class="c"># Verify rules</span>
+</code></pre></div></div> <p><strong>Why both ports?</strong></p> <ul> <li>Port 80: Receives HTTP requests, redirects to HTTPS</li> <li>Port 443: Handles all HTTPS traffic</li> </ul> <hr> <h3 id="updating-gitea-configuration">Updating Gitea Configuration</h3> <p><strong>Tell Gitea it’s behind a reverse proxy:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/gitea-docker/gitea/gitea/conf/app.ini
+</code></pre></div></div> <p><strong>Find or add the <code class="language-plaintext highlighter-rouge">[server]</code> section:</strong></p> <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[server]</span>
+<span class="py">PROTOCOL</span> <span class="p">=</span> <span class="s">http</span>
+<span class="py">DOMAIN</span> <span class="p">=</span> <span class="s">gitea.homelab.local</span>
+<span class="py">ROOT_URL</span> <span class="p">=</span> <span class="s">https://gitea.homelab.local/</span>
+<span class="py">HTTP_PORT</span> <span class="p">=</span> <span class="s">3000</span>
+</code></pre></div></div> <p><strong>Restart Gitea to apply changes:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/gitea-docker
+docker compose restart server
+</code></pre></div></div> <hr> <h3 id="complete-architecture">Complete Architecture</h3> <p><strong>The full request flow:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────┐
+│   Browser   │
+└──────┬──────┘
+       │ HTTPS (443)
+       ↓
+┌──────────────────┐
+│  Nginx (Port 443)│
+│  Reverse Proxy   │
+│  - SSL/TLS       │
+│  - Headers       │
+└──────┬───────────┘
+       │ HTTP (3000)
+       ↓
+┌──────────────────┐      ┌──────────────┐
+│  Gitea Container │ ◄──► │ PostgreSQL   │
+│  (Port 3000)     │      │ Container    │
+└──────────────────┘      └──────────────┘
+</code></pre></div></div> <h2 id="cicd-pipeline-via-gitea-actions">CI/CD Pipeline via Gitea Actions</h2> <h3 id="why-cicd-matters">Why CI/CD Matters</h3> <p>To make the setup more advanced and production-ready, implementing CI/CD (Continuous Integration/Continuous Deployment) with Gitea Actions is essential.</p> <p><strong>Definitions:</strong></p> <ul> <li> <strong>CI (Continuous Integration):</strong> Automatically test and build code whenever changes are pushed</li> <li> <strong>CD (Continuous Deployment):</strong> Automatically deploy tested code to production</li> </ul> <hr> <h3 id="traditional-vs-automated-workflow">Traditional vs Automated Workflow</h3> <p><strong>Traditional manual workflow (error-prone):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Developer writes code
+2. Developer manually runs tests
+3. Developer manually builds the application
+4. Developer manually deploys to server
+5. Something breaks in production
+6. Scramble to fix and redeploy
+</code></pre></div></div> <p><strong>Automated CI/CD workflow:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Developer writes code
+2. Developer pushes to Git
+        ↓
+3. CI/CD automatically:
+   - Runs all tests
+   - Checks code quality (linting)
+   - Builds the application
+   - Runs security scans
+   - Creates deployment package
+        ↓
+4. If tests pass:
+   - Automatically deploys to staging
+   - Runs integration tests
+   - Deploys to production
+        ↓
+5. Code is live, tested, and verified
+</code></pre></div></div> <hr> <h3 id="gitea-actions-architecture">Gitea Actions Architecture</h3> <p>Gitea Actions works similarly to GitHub Actions, using a runner-based system:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────┐
+│         Gitea Server                    │
+│  - Receives git push                    │
+│  - Reads .gitea/workflows/*.yml         │
+│  - Queues jobs                          │
+│  - Displays results in UI               │
+└──────────────┬──────────────────────────┘
+               │
+               ↓
+┌──────────────────────────────────────────┐
+│      Gitea Actions Runner                │
+│  - Polls Gitea for new jobs              │
+│  - Pulls required Docker images          │
+│  - Starts isolated job containers        │
+│  - Executes workflow steps               │
+│  - Reports results back to Gitea         │
+└──────────────┬───────────────────────────┘
+               │
+               ↓
+┌──────────────────────────────────────────┐
+│        Job Container                     │
+│  (ubuntu-latest, node:18, python:3.11)   │
+│                                          │
+│  Runs your workflow steps:               │
+│  - Checkout code                         │
+│  - Install dependencies                  │
+│  - Run tests                             │
+│  - Build application                     │
+│  - Deploy (if tests pass)                │
+└──────────────────────────────────────────┘
+</code></pre></div></div> <hr> <h3 id="enabling-gitea-actions">Enabling Gitea Actions</h3> <p><strong>Edit Gitea configuration:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/gitea-docker/gitea/gitea/conf/app.ini
+</code></pre></div></div> <p><strong>Add these sections:</strong></p> <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[actions]</span>
+<span class="py">ENABLED</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="nn">[webhook]</span>
+<span class="py">ALLOWED_HOST_LIST</span> <span class="p">=</span> <span class="s">*</span>
+</code></pre></div></div> <p><strong>Restart Gitea to apply changes:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/gitea-docker
+docker compose restart server
+</code></pre></div></div> <p><strong>Verify Actions is enabled:</strong></p> <ul> <li>Log into Gitea web UI</li> <li>Go to <strong>Site Administration</strong> then <strong>Actions</strong> </li> <li>Should see “Actions” section (not a 404 error)</li> </ul> <hr> <h3 id="setting-up-the-gitea-actions-runner">Setting Up the Gitea Actions Runner</h3> <p><strong>What is a runner?</strong></p> <p>The runner is the service that actually executes your CI/CD jobs. It:</p> <ul> <li>Polls Gitea for new jobs</li> <li>Pulls Docker images for job environments</li> <li>Runs workflow steps in isolated containers</li> <li>Reports results back to Gitea</li> </ul> <p><strong>Create runner directory:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/gitea-runner
+</code></pre></div></div> <p><strong>Get registration token:</strong></p> <ol> <li>In Gitea web UI, go to <strong>Site Administration</strong> </li> <li>Click <strong>Actions</strong> then <strong>Runners</strong> </li> <li>Click <strong>Create new Runner</strong> </li> <li>Copy the <strong>registration token</strong> </li> </ol> <p><strong>Create runner configuration file:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/gitea-runner/config.yaml
+</code></pre></div></div> <p><strong>Paste this configuration:</strong></p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">log</span><span class="pi">:</span>
+  <span class="na">level</span><span class="pi">:</span> <span class="s">info</span>
+
+<span class="na">runner</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">my-runner</span>
+  <span class="na">capacity</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">ubuntu-latest:docker://node:16-bullseye"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">ubuntu-22.04:docker://node:16-bullseye"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">ubuntu-20.04:docker://node:16-bullseye"</span>
+
+<span class="na">cache</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="kc">true</span>
+
+<span class="na">container</span><span class="pi">:</span>
+  <span class="na">network</span><span class="pi">:</span> <span class="s2">"</span><span class="s">host"</span>
+  <span class="na">privileged</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">options</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">valid_volumes</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">docker_host</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="na">host</span><span class="pi">:</span>
+  <span class="na">workdir_parent</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre></div></div> <h3 id="starting-the-runner">Starting the Runner</h3> <p><strong>Run the runner as a Docker container:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="se">\</span>
+  <span class="nt">--name</span> gitea-runner <span class="se">\</span>
+  <span class="nt">--restart</span> always <span class="se">\</span>
+  <span class="nt">--network</span> host <span class="se">\</span>
+  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="se">\</span>
+  <span class="nt">-v</span> ~/gitea-runner:/data <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">GITEA_INSTANCE_URL</span><span class="o">=</span>http://YOUR_SERVER_IP:3000 <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">GITEA_RUNNER_REGISTRATION_TOKEN</span><span class="o">=</span>YOUR_TOKEN_HERE <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">GITEA_RUNNER_NAME</span><span class="o">=</span>my-runner <span class="se">\</span>
+  <span class="nt">-e</span> <span class="nv">CONFIG_FILE</span><span class="o">=</span>/data/config.yaml <span class="se">\</span>
+  gitea/act_runner:latest
+</code></pre></div></div> <p><strong>Check runner status in Gitea:</strong></p> <ul> <li>Go to <strong>Site Administration</strong> then <strong>Actions</strong> then <strong>Runners</strong> </li> <li>Should see “my-runner” with a <strong>green dot</strong> (Online)</li> </ul> <hr> <h3 id="creating-the-first-workflow">Creating The First Workflow</h3> <p><strong>Clone your test repository:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone http://localhost:3000/admin/test-repo.git
+<span class="nb">cd </span>test-repo
+</code></pre></div></div> <p><strong>Create workflow directory:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> .gitea/workflows
+</code></pre></div></div> <p><strong>Create workflow file:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano .gitea/workflows/test.yml
+</code></pre></div></div> <p><strong>Paste this example workflow:</strong></p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">CI Pipeline</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">**'</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Say hello</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">echo "Hello from Gitea Actions!"</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Show system info</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">echo "Running on:"</span>
+          <span class="s">uname -a</span>
+          <span class="s">echo "Current directory:"</span>
+          <span class="s">pwd</span>
+          <span class="s">echo "Files in repo:"</span>
+          <span class="s">ls -la</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Success!</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">echo "✅ Workflow completed successfully!"</span>
+</code></pre></div></div> <hr> <p><strong>What <code class="language-plaintext highlighter-rouge">runs-on</code> does:</strong></p> <ol> <li>Runner pulls <code class="language-plaintext highlighter-rouge">ubuntu-latest</code> Docker image</li> <li>Starts a fresh Ubuntu container</li> <li>Runs all steps inside that container</li> <li>Destroys container when done</li> </ol> <p><strong>Clean slate guarantee:</strong> Every run starts from scratch—no leftover files, dependencies, or configuration.</p> <hr> <h3 id="deploying-and-running-the-workflow">Deploying and Running the Workflow</h3> <p><strong>Commit and push the workflow:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .gitea/
+git commit <span class="nt">-m</span> <span class="s2">"Add CI/CD workflow"</span>
+git push
+</code></pre></div></div> <p><strong>What happens next (automatically):</strong></p> <ol> <li> <strong>Git push</strong> sends code to Gitea</li> <li> <strong>Gitea detects</strong> <code class="language-plaintext highlighter-rouge">.gitea/workflows/test.yml</code> </li> <li> <strong>Gitea queues</strong> a job</li> <li> <strong>Runner picks up</strong> the job</li> <li> <strong>Runner pulls</strong> <code class="language-plaintext highlighter-rouge">ubuntu-latest</code> Docker image (if not cached)</li> <li> <strong>Runner starts</strong> fresh container</li> <li> <strong>Runner executes</strong> each step: <ul> <li>Checkout code</li> <li>Say hello</li> <li>Show system info</li> <li>Success message</li> </ul> </li> <li> <strong>Runner reports</strong> results to Gitea</li> <li> <strong>Container destroyed</strong> (cleanup)</li> </ol> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/gactions-480.webp 480w,/assets/img/gactions-800.webp 800w,/assets/img/gactions-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/gactions.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Gitea Actions running" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <hr> <p><strong>Every push now:</strong></p> <ol> <li>Automatically runs tests</li> <li>Checks code quality</li> <li>Reports results immediately</li> <li>All without manual intervention</li> </ol> <h2 id="webhooks-for-automated-deployment">Webhooks for Automated Deployment</h2> <h3 id="what-is-a-webhook">What is a Webhook?</h3> <p>A webhook is an HTTP callback that enables real-time, event-driven automation. Instead of constantly checking for changes, webhooks notify your system the instant something happens.</p> <p><strong>Traditional polling:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your App: "Any new data?"
+Server: "No"
+[Wait 5 seconds]
+Your App: "Any new data?"
+Server: "No"
+[Wait 5 seconds]
+Your App: "Any new data?"
+Server: "Yes! Here's the data"
+</code></pre></div></div> <p><strong>Webhook approach (event-driven):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your App: "Call me at http://myserver:9000 when there's new data"
+Server: "OK, registered!"
+[Time passes... event occurs]
+Server: "New data arrived! POSTing to http://myserver:9000..."
+Your App: Receives notification instantly and takes action
+</code></pre></div></div> <p><strong>Benefits:</strong></p> <ul> <li>Real-time (instant notifications)</li> <li>Efficient (only called when needed)</li> <li>Scalable (one webhook handles millions of events)</li> <li>Event-driven architecture</li> </ul> <hr> <h3 id="how-webhooks-work-in-gitea">How Webhooks Work in Gitea</h3> <p><strong>Setup phase:</strong></p> <ol> <li>You configure a webhook URL in Gitea repository settings</li> <li>You specify which events should trigger the webhook (push, pull request, issues, etc.)</li> <li>Gitea stores this configuration</li> </ol> <p><strong>When an event happens:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Developer: git push
+        ↓
+Gitea: "Push event detected on main branch"
+        ↓
+Gitea: "Webhook configured for push events"
+        ↓
+Gitea: Sends HTTP POST to your webhook URL
+       Body: JSON payload with event details
+       Header: X-Gitea-Signature (HMAC signature)
+        ↓
+Your webhook listener: Receives POST request
+        ↓
+Your webhook listener: Verifies signature (security)
+        ↓
+Your webhook listener: Parses payload
+        ↓
+Your webhook listener: Takes action (deploy, notify, etc.)
+</code></pre></div></div> <hr> <h3 id="the-webhook-payload">The Webhook Payload</h3> <p><strong>What Gitea sends:</strong></p> <p>When a push event occurs, Gitea sends a JSON payload containing:</p> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refs/heads/main"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"after"</span><span class="p">:</span><span class="w"> </span><span class="s2">"def456..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"repository"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-repo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin/test-repo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"html_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gitea.homelab.local/admin/test-repo"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pusher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"commits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"def456789..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fix bug in authentication"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gitea.homelab.local/admin/test-repo/commit/def456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-12T02:30:45Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"added"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"new_file.py"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"removed"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"auth.py"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div> <p><strong>Rich information available:</strong></p> <ul> <li>Who pushed the code</li> <li>Which branch was affected</li> <li>What files changed (added, modified, deleted)</li> <li>Commit messages</li> <li>Full commit history</li> <li>Repository metadata</li> </ul> <hr> <h3 id="creating-the-webhook-listener">Creating the Webhook Listener</h3> <p><strong>Create webhook listener directory:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/webhook-listener
+<span class="nb">cd</span> ~/webhook-listener
+</code></pre></div></div> <p><strong>Create the webhook handler script:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano webhook_handler.py
+</code></pre></div></div> <p><strong>Paste this Python webhook listener:</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">from</span> <span class="n">http.server</span> <span class="kn">import</span> <span class="n">BaseHTTPRequestHandler</span><span class="p">,</span> <span class="n">HTTPServer</span>
+<span class="kn">import</span> <span class="n">json</span>
+<span class="kn">import</span> <span class="n">subprocess</span>
+<span class="kn">import</span> <span class="n">hmac</span>
+<span class="kn">import</span> <span class="n">hashlib</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">SECRET</span> <span class="o">=</span> <span class="sh">"</span><span class="s">my_super_secret_webhook_key</span><span class="sh">"</span>
+
+<span class="k">class</span> <span class="nc">WebhookHandler</span><span class="p">(</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">do_POST</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Read the request body
+</span>        <span class="n">content_length</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="sh">'</span><span class="s">Content-Length</span><span class="sh">'</span><span class="p">])</span>
+        <span class="n">post_data</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">rfile</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="n">content_length</span><span class="p">)</span>
+        
+        <span class="c1"># Verify HMAC signature (security!)
+</span>        <span class="n">signature</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">X-Gitea-Signature</span><span class="sh">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">signature</span><span class="p">:</span>
+            <span class="n">expected_sig</span> <span class="o">=</span> <span class="n">hmac</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+                <span class="n">SECRET</span><span class="p">.</span><span class="nf">encode</span><span class="p">(),</span>
+                <span class="n">post_data</span><span class="p">,</span>
+                <span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span>
+            <span class="p">).</span><span class="nf">hexdigest</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">hmac</span><span class="p">.</span><span class="nf">compare_digest</span><span class="p">(</span><span class="n">signature</span><span class="p">,</span> <span class="n">expected_sig</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">❌ Invalid signature! Rejecting webhook.</span><span class="sh">"</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="nf">send_response</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="nf">end_headers</span><span class="p">()</span>
+                <span class="k">return</span>
+        
+        <span class="c1"># Parse the JSON payload
+</span>        <span class="k">try</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">post_data</span><span class="p">.</span><span class="nf">decode</span><span class="p">())</span>
+        <span class="k">except</span> <span class="n">json</span><span class="p">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">❌ Invalid JSON payload</span><span class="sh">"</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">send_response</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">end_headers</span><span class="p">()</span>
+            <span class="k">return</span>
+        
+        <span class="c1"># Extract information from payload
+</span>        <span class="n">repo_name</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">repository</span><span class="sh">'</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">unknown</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">repo_full</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">repository</span><span class="sh">'</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">full_name</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">unknown</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">pusher</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">pusher</span><span class="sh">'</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">username</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">unknown</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">branch</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">ref</span><span class="sh">'</span><span class="p">,</span> <span class="sh">''</span><span class="p">).</span><span class="nf">split</span><span class="p">(</span><span class="sh">'</span><span class="s">/</span><span class="sh">'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">commits</span> <span class="o">=</span> <span class="n">payload</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">commits</span><span class="sh">'</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">commit_count</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">commits</span><span class="p">)</span>
+        
+        <span class="c1"># Log the webhook receipt
+</span>        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">'</span><span class="s">%Y-%m-%d %H:%M:%S</span><span class="sh">'</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="si">{</span><span class="sh">'</span><span class="s">=</span><span class="sh">'</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🎣 WEBHOOK RECEIVED at </span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="sh">'</span><span class="s">=</span><span class="sh">'</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">📦 Repository: </span><span class="si">{</span><span class="n">repo_full</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">👤 Pushed by: </span><span class="si">{</span><span class="n">pusher</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🌿 Branch: </span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">📝 Commits: </span><span class="si">{</span><span class="n">commit_count</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">commits</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">💬 Latest commit message:</span><span class="sh">"</span><span class="p">)</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">   </span><span class="si">{</span><span class="n">commits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">message</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">No message</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="c1"># Branch-specific automation
+</span>        <span class="k">if</span> <span class="n">branch</span> <span class="o">==</span> <span class="sh">"</span><span class="s">main</span><span class="sh">"</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">🚀 Main branch detected! Running deployment...</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span>
+                    <span class="p">[</span><span class="sh">'</span><span class="s">/home/YOUR_USERNAME/deploy.sh</span><span class="sh">'</span><span class="p">],</span>
+                    <span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                    <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                    <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span>
+                <span class="p">)</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">✅ Deployment output:</span><span class="se">\n</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">stdout</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="p">.</span><span class="n">stderr</span><span class="p">:</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">⚠️  Deployment warnings:</span><span class="se">\n</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">stderr</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">❌ Deployment timed out after 60 seconds</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">❌ Deployment failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+                
+        <span class="k">elif</span> <span class="n">branch</span> <span class="o">==</span> <span class="sh">"</span><span class="s">develop</span><span class="sh">"</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">🧪 Develop branch detected! Running integration tests...</span><span class="sh">"</span><span class="p">)</span>
+            <span class="c1"># Add integration test commands here
+</span>            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">📌 Branch </span><span class="sh">'</span><span class="si">{</span><span class="n">branch</span><span class="si">}</span><span class="sh">'</span><span class="s"> - no automated actions configured</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="sh">'</span><span class="s">=</span><span class="sh">'</span><span class="o">*</span><span class="mi">60</span><span class="si">}</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="c1"># Send successful response back to Gitea
+</span>        <span class="n">self</span><span class="p">.</span><span class="nf">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">send_header</span><span class="p">(</span><span class="sh">'</span><span class="s">Content-type</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">application/json</span><span class="sh">'</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">end_headers</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">status</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">success</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Webhook processed</span><span class="sh">"</span><span class="p">}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">wfile</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">encode</span><span class="p">())</span>
+    
+    <span class="k">def</span> <span class="nf">log_message</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="c1"># Suppress default HTTP request logging
+</span>        <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">PORT</span> <span class="o">=</span> <span class="mi">9000</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="nc">HTTPServer</span><span class="p">((</span><span class="sh">'</span><span class="s">0.0.0.0</span><span class="sh">'</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span> <span class="n">WebhookHandler</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🎣 Webhook listener started on port </span><span class="si">{</span><span class="n">PORT</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🔒 Using secret: </span><span class="si">{</span><span class="n">SECRET</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">📡 Listening for webhooks from Gitea...</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">server</span><span class="p">.</span><span class="nf">serve_forever</span><span class="p">()</span>
+    <span class="k">except</span> <span class="nb">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n\n</span><span class="s">👋 Shutting down webhook listener...</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">server</span><span class="p">.</span><span class="nf">shutdown</span><span class="p">()</span>
+</code></pre></div></div> <p><strong>Make it executable:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x webhook_handler.py
+</code></pre></div></div> <hr> <h3 id="creating-the-deployment-script">Creating the Deployment Script</h3> <p><strong>Create deployment script:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/deploy.sh
+</code></pre></div></div> <p><strong>Paste this example deployment script:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"======================================"</span>
+<span class="nb">echo</span> <span class="s2">"🚀 DEPLOYMENT STARTED"</span>
+<span class="nb">echo</span> <span class="s2">"======================================"</span>
+<span class="nb">echo</span> <span class="s2">""</span>
+
+<span class="c"># Pull latest code from repository</span>
+<span class="nb">echo</span> <span class="s2">"📥 Pulling latest code..."</span>
+<span class="nb">cd</span> ~/test-repo <span class="o">||</span> <span class="nb">exit </span>1
+git pull origin main
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-ne</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"❌ Git pull failed!"</span>
+    <span class="nb">exit </span>1
+<span class="k">fi
+
+</span><span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"🔧 Installing dependencies..."</span>
+<span class="c"># Example for different project types:</span>
+<span class="c"># Python: pip install -r requirements.txt</span>
+<span class="c"># Node.js: npm install</span>
+<span class="c"># Go: go mod download</span>
+<span class="nb">echo</span> <span class="s2">"(No dependencies to install for this demo)"</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"🔨 Building application..."</span>
+<span class="c"># Example build commands:</span>
+<span class="c"># Node.js: npm run build</span>
+<span class="c"># Go: go build -o app main.go</span>
+<span class="c"># Docker: docker build -t myapp:latest .</span>
+<span class="nb">echo</span> <span class="s2">"(No build step for this demo)"</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"♻️  Restarting services..."</span>
+<span class="c"># Example service restarts:</span>
+<span class="c"># systemctl restart myapp</span>
+<span class="c"># docker-compose restart</span>
+<span class="c"># pm2 restart myapp</span>
+<span class="nb">echo</span> <span class="s2">"(No services to restart for this demo)"</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"🧪 Running smoke tests..."</span>
+<span class="c"># Example: curl http://localhost:3000/health</span>
+<span class="nb">echo</span> <span class="s2">"(No smoke tests configured for this demo)"</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"======================================"</span>
+<span class="nb">echo</span> <span class="s2">"✅ DEPLOYMENT COMPLETE!"</span>
+<span class="nb">echo</span> <span class="s2">"======================================"</span>
+</code></pre></div></div> <p><strong>Make it executable:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ~/deploy.sh
+</code></pre></div></div> <p><strong>What a real deployment script might include:</strong></p> <ol> <li> <strong>Code update:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/myapp
+git pull origin main
+</code></pre></div> </div> </li> <li> <strong>Dependency installation:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>npm <span class="nb">install
+</span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+composer <span class="nb">install</span>
+</code></pre></div> </div> </li> <li> <strong>Build step:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>npm run build
+docker build <span class="nt">-t</span> myapp:latest <span class="nb">.</span>
+</code></pre></div> </div> </li> <li> <strong>Database migrations:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>python manage.py migrate
+rails db:migrate
+</code></pre></div> </div> </li> <li> <strong>Service restart:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>systemctl restart myapp
+docker-compose up <span class="nt">-d</span> <span class="nt">--no-deps</span> <span class="nt">--build</span> app
+pm2 restart myapp
+</code></pre></div> </div> </li> <li> <strong>Health check:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>curl <span class="nt">-f</span> http://localhost:3000/health <span class="o">||</span> <span class="nb">exit </span>1
+</code></pre></div> </div> </li> <li> <strong>Notification:</strong> <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST https://slack.com/api/chat.postMessage <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"text=Deployment successful!"</span>
+</code></pre></div> </div> </li> </ol> <hr> <h3 id="running-the-webhook-listener">Running the Webhook Listener</h3> <p><strong>Start the webhook listener:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/webhook-listener
+python3 webhook_handler.py
+</code></pre></div></div> <p><strong>Expected output:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🎣 Webhook listener started on port 9000
+🔒 Using secret: my_super_secret_webhook_key
+📡 Listening for webhooks from Gitea...
+</code></pre></div></div> <p><strong>The listener is now running and waiting for webhooks!</strong></p> <p><strong>Leave this terminal open</strong> (listener must be running to receive webhooks). Open a new terminal for the next steps.</p> <hr> <h3 id="configuring-the-firewall">Configuring the Firewall</h3> <p><strong>Open port 9000 for incoming webhook requests:</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow 9000/tcp
+<span class="nb">sudo </span>ufw status
+</code></pre></div></div> <p><strong>Verify the rule was added:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+443/tcp                    ALLOW       Anywhere
+3000/tcp                   ALLOW       Anywhere
+9000/tcp                   ALLOW       Anywhere
+</code></pre></div></div> <hr> <h3 id="configuring-the-webhook-in-gitea">Configuring the Webhook in Gitea</h3> <p><strong>In Gitea web UI:</strong></p> <ol> <li>Navigate to your repository (e.g., <code class="language-plaintext highlighter-rouge">test-repo</code>)</li> <li>Click <strong>Settings</strong> (top-right)</li> <li>Click <strong>Webhooks</strong> (left sidebar)</li> <li>Click <strong>Add Webhook</strong> then <strong>Gitea</strong> </li> </ol> <p><strong>Configure the webhook:</strong></p> <p><strong>General Settings:</strong></p> <ul> <li> <strong>Target URL:</strong> <code class="language-plaintext highlighter-rouge">http://YOUR_SERVER_IP:9000</code> <ul> <li>Replace <code class="language-plaintext highlighter-rouge">YOUR_SERVER_IP</code> with your server’s IP (e.g., <code class="language-plaintext highlighter-rouge">192.168.1.100</code>)</li> <li>Or use <code class="language-plaintext highlighter-rouge">http://localhost:9000</code> if testing locally</li> </ul> </li> <li> <strong>HTTP Method:</strong> <code class="language-plaintext highlighter-rouge">POST</code> </li> <li> <strong>POST Content Type:</strong> <code class="language-plaintext highlighter-rouge">application/json</code> </li> <li> <strong>Secret:</strong> <code class="language-plaintext highlighter-rouge">my_super_secret_webhook_key</code> <ul> <li>Must match the SECRET in your Python script!</li> </ul> </li> </ul> <p><strong>Trigger Events:</strong></p> <ul> <li>✅ <strong>Push events</strong> (checked)</li> <li>⬜ Pull request events (optional)</li> <li>⬜ Issue events (optional)</li> <li>⬜ Repository events (optional)</li> </ul> <p><strong>Branch Filter:</strong> Leave empty (triggers on all branches)</p> <p><strong>Active:</strong> ✅ Checked</p> <ol> <li>Click <strong>Add Webhook</strong> </li> </ol> <hr> <h3 id="testing-the-webhook">Testing the Webhook</h3> <p><strong>Test 1: Manual test delivery</strong></p> <ol> <li>In the webhook configuration page, scroll to <strong>Recent Deliveries</strong> </li> <li>Click <strong>Test Delivery</strong> → <strong>Push</strong> </li> <li>Gitea sends a test webhook immediately</li> </ol> <p><strong>Switch to your webhook listener terminal:</strong></p> <p>You should see:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>============================================================
+🎣 WEBHOOK RECEIVED at 2024-11-12 10:30:45
+============================================================
+📦 Repository: admin/test-repo
+👤 Pushed by: admin
+🌿 Branch: main
+📝 Commits: 1
+
+💬 Latest commit message:
+   Test webhook delivery
+
+🚀 Main branch detected! Running deployment...
+✅ Deployment output:
+======================================
+🚀 DEPLOYMENT STARTED
+======================================
+...
+✅ DEPLOYMENT COMPLETE!
+============================================================
+</code></pre></div></div> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/webhook-480.webp 480w,/assets/img/webhook-800.webp 800w,/assets/img/webhook-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/webhook.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Webhook running in terminal" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <p><strong>Test 2: Real push event</strong></p> <p>Make a code change and push:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/test-repo
+<span class="nb">echo</span> <span class="s2">"Testing webhooks - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> README.md
+git add README.md
+git commit <span class="nt">-m</span> <span class="s2">"Test webhook trigger"</span>
+git push
+</code></pre></div></div> <p><strong>Watch your webhook listener terminal:</strong></p> <ul> <li>Repository information</li> <li>Who pushed</li> <li>Branch name</li> <li>Commit message</li> <li>Deployment execution (if main branch)</li> </ul> <hr> <h3 id="verifying-webhook-deliveries">Verifying Webhook Deliveries</h3> <p><strong>In Gitea web UI:</strong></p> <ol> <li>Go to <strong>Repository Settings</strong> then <strong>Webhooks</strong> </li> <li>Click on your webhook</li> <li>Scroll to <strong>Recent Deliveries</strong> </li> </ol> <p><strong>Each delivery shows:</strong></p> <ul> <li> <strong>Timestamp</strong> - When the webhook was sent</li> <li> <strong>Response Code</strong> - HTTP status (200 = success, 403 = invalid signature, etc.)</li> <li> <strong>Response Body</strong> - What your listener returned</li> <li> <strong>Request Headers</strong> - Including <code class="language-plaintext highlighter-rouge">X-Gitea-Signature</code> </li> <li> <strong>Request Body</strong> - Full JSON payload sent</li> </ul> <h1 id="project-conclusion">Project Conclusion</h1> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/fullgitea-480.webp 480w,/assets/img/fullgitea-800.webp 800w,/assets/img/fullgitea-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/fullgitea.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Full Gitea setup" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <h2 id="key-accomplishments">Key Accomplishments</h2> <h3 id="phase-1-foundation">Phase 1: Foundation</h3> <ul> <li>✅ Bare Git repository with SSH authentication</li> <li>✅ Public-key cryptography implementation (Ed25519)</li> <li>✅ Dedicated git user for security isolation</li> <li>✅ Firewall configuration (UFW)</li> <li>✅ Remote access via SSH</li> <li>✅ Terminal-based Git workflows</li> </ul> <p><strong>Skills demonstrated:</strong> Linux system administration, SSH security, version control fundamentals, network security basics</p> <h3 id="phase-2-production-infrastructure">Phase 2: Production Infrastructure</h3> <ul> <li>✅ Containerized application stack (Docker + Docker Compose)</li> <li>✅ Multi-container orchestration (Gitea + PostgreSQL)</li> <li>✅ Persistent data storage with Docker volumes</li> <li>✅ Self-hosted Git server with web interface (Gitea)</li> <li>✅ Nginx reverse proxy with SSL/TLS encryption</li> <li>✅ Clean URL routing and HTTPS termination</li> <li>✅ Automated CI/CD pipeline (Gitea Actions)</li> <li>✅ Webhook-driven deployment automation</li> <li>✅ HMAC signature verification for security</li> <li>✅ Branch-specific deployment logic</li> </ul> <p><strong>Skills demonstrated:</strong> Containerization, database management, reverse proxy configuration, SSL/TLS certificates, CI/CD pipeline design, event-driven architecture, cryptographic security, infrastructure as code</p> <hr> <p>My first homelabbing project was a huge success! What started as a simple SSH-access, bare-repo turned into an enterprise-grade production. I have really learned to love the world of DevOps and how intricate homelabbing can be. I hope to continue working on DevOp side projects and continuing to expand my skill set.</p> <p>If you are using this as a tutorial in developing your own Git infastructure, I hope this is helpful. Any suggestions and/or feedback is always welcomed. Please refer to my contact list in the footer of the website.</p> </article> <h2>References</h2> <div class="publications"> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Brock Benton. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: November 17, 2025. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> </body> </html>

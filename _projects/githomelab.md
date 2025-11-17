@@ -5,10 +5,10 @@ description: A fully-fledged self-hosted Git server with enterprise-grade automa
 img: 
 importance: 1
 category:
-related_publications: true
+related_publications: false
 ---
 
-# Git Infrastructure with Automated CI/CD Pipeline
+---
 
 The goal of this project is to develop a fully-fledged self-hosted Git server with enterprise-grade automation capabilities. By building this infrastructure from scratch, I learned containerization, reverse proxy configuration, CI/CD pipeline design, and event-driven deployment automation.
 

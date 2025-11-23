@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/jtresume.pdf";
           },
-        },{id: "post-utility-tokens-as-a-commitment-to-competition-a-presentation-summary",
+        },{id: "post-the-underlying-demand-for-cryptocurrency-technology",
+        
+          title: "The Underlying Demand for Cryptocurrency Technology",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/demand-of-cc/";
+          
+        },
+      },{id: "post-utility-tokens-as-a-commitment-to-competition-a-presentation-summary",
         
           title: "Utility Tokens as a Commitment to Competition: A Presentation Summary",
         

@@ -8,8 +8,6 @@ category:
 related_publications: false
 ---
 
-# Building a Distributed Blockchain from Scratch in C++
-
 *A deep dive into implementing a proof-of-work blockchain with peer-to-peer networking*
 
 ---

@@ -63,7 +63,12 @@ ninja.data = [{
           section: "News",},{id: "news-i-had-the-opportunity-to-compete-in-the-2025-daniels-fund-national-ethics-case-competition-where-my-team-and-i-applied-ethical-principles-to-real-world-business-challenges-navigating-complex-scenarios-where-moral-values-and-business-interests-collide",
           title: 'I had the opportunity to compete in the 2025 Daniels Fund National Ethics...',
           description: "",
-          section: "News",},{id: "projects-git-infastructure-with-ci-cd-pipeline",
+          section: "News",},{id: "projects-distributed-blockchain-network-c",
+          title: 'Distributed Blockchain Network (C++)',
+          description: "A proof-of-work blockchain in C++ featuring SHA-256 mining, transaction validation, and peer-to-peer networking with automatic distributed consensus.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cpp-blockchain/";
+            },},{id: "projects-git-infastructure-with-ci-cd-pipeline",
           title: 'Git Infastructure with CI/CD Pipeline',
           description: "A fully-fledged self-hosted Git server with enterprise-grade automation capabilities.",
           section: "Projects",handler: () => {

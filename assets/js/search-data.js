@@ -28,7 +28,7 @@ ninja.data = [{
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/assets/pdf/resume/jtresume.pdf";
+            window.location.href = "/assets/pdf/resume/resume.pdf";
           },
         },{id: "post-the-underlying-demand-for-cryptocurrency-technology",
         

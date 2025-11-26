@@ -1,3 +1,13 @@
+---
+layout: page
+title: Distributed Blockchain Network (C++)
+description: A proof-of-work blockchain in C++ featuring SHA-256 mining, transaction validation, and peer-to-peer networking with automatic distributed consensus.
+img: 
+importance: 1
+category:
+related_publications: false
+---
+
 # Building a Distributed Blockchain from Scratch in C++
 
 *A deep dive into implementing a proof-of-work blockchain with peer-to-peer networking*

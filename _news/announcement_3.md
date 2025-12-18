@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Over this last weekend, I participated in my first hackathon at the Midwest Blockchain Conference. Our team developed a prediction-powered escrow that acts as an onchain commitment device. Alongside hacking, I networked with dozens of students, recruiters, founders, and venture capitalists from across the nation.
+Over this last weekend, I participated in my first hackathon at the <a href="https://midwestblockchain.org/">Midwest Blockchain Conference</a>. Our team developed a prediction-powered escrow that acts as an onchain commitment device. Alongside hacking, I networked with dozens of students, recruiters, founders, and venture capitalists from across the nation.

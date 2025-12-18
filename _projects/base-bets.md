@@ -14,7 +14,7 @@ related_publications: false
 
 ## Introduction
 
-What if you could make a bet with a friend—"I'll pay you $50 if Bitcoin hits $100k by year-end"—and have it settle automatically, with no trust required?
+What if you could make a bet with a friend—"I'll pay you \$50 if Bitcoin hits \$100k by year-end"—and have it settle automatically, with no trust required?
 
 That's what my team built at the Midwest Blockchain Conference hackathon. Base Bets is a prediction-powered escrow system where USDC funds are locked in a smart contract and automatically released based on real-world outcomes verified through Polymarket.
 
@@ -57,7 +57,7 @@ This is the "oracle problem:" bringing real-world data on-chain in a trustworthy
 
 Polymarket is a prediction market where traders buy and sell shares on real-world outcomes. If you think Bitcoin will hit $100k, you buy YES shares. The market price reflects the crowd's probability estimate.
 
-When the event happens, the market resolves: YES shares become worth $1, NO shares become worth $0. This resolution is verified by Polymarket's Gamma API.
+When the event happens, the market resolves: YES shares become worth \$1, NO shares become worth \$0. This resolution is verified by Polymarket's Gamma API.
 
 We use this resolution as our oracle. Instead of trusting a single arbiter, we trust the economic incentives of a prediction market with millions of dollars at stake.
 
@@ -370,7 +370,7 @@ Zero crypto knowledge required. It feels like a normal web app.
 
 ### Layer 2 Economics
 
-Ethereum mainnet transactions cost $5-50+ depending on congestion. For a $20 escrow, that's unacceptable.
+Ethereum mainnet transactions cost \$5-50+ depending on congestion. For a \$20 escrow, that's unacceptable.
 
 Base is an L2 (Layer 2) built on the OP Stack. It batches transactions and posts compressed data to Ethereum, inheriting mainnet security at a fraction of the cost.
 
@@ -382,7 +382,7 @@ Base is an L2 (Layer 2) built on the OP Stack. It batches transactions and posts
 
 ### Why This Matters
 
-At $0.05 per transaction, users can create $10 escrows economically. At $20 per transaction, nothing under $500 makes sense.
+At \$0.05 per transaction, users can create \$10 escrows economically. At \$20 per transaction, nothing under \$500 makes sense.
 
 The 100-1000x cost reduction unlocks an entire category of micro-agreements that were previously impractical.
 
@@ -417,17 +417,17 @@ function createEscrow(...) external nonReentrant {
 
 ## Part 7: Use Cases
 
-### Peer-to-Peer Bets
+#### Peer-to-Peer Bets
 "I bet you $50 the Lakers win the Finals."
 
 Alice creates escrow staking $50, Bob accepts by staking $50. Market resolves. Winner takes $100.
 
-### Asymmetric Odds
-"I'll bet $100 against your $20 that Bitcoin hits $150k."
+#### Asymmetric Odds
+"I'll bet \$100 against your \$20 that Bitcoin hits \$150k."
 
 The depositor can set different stake amounts. If you're confident, put more skin in the game.
 
-### Conditional Business Agreements
+#### Conditional Business Agreements
 "Bonus paid if we hit Q4 revenue targets."
 
 Link payment to verifiable financial metrics tracked by prediction markets.

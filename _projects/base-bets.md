@@ -14,7 +14,7 @@ related_publications: false
 
 ## Introduction
 
-What if you could make a bet with a friend—"I'll pay you \$50 if Bitcoin hits \$100k by year-end"—and have it settle automatically, with no trust required?
+What if you could make a bet with a friend—"I'll pay you \$ 50 if Bitcoin hits '$'100k by year-end"—and have it settle automatically, with no trust required?
 
 That's what my team built at the Midwest Blockchain Conference hackathon. Base Bets is a prediction-powered escrow system where USDC funds are locked in a smart contract and automatically released based on real-world outcomes verified through Polymarket.
 

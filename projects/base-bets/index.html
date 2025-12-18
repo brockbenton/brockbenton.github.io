@@ -1,0 +1,173 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Base Bets (MBC Hackathon) | Brock Benton </title> <meta name="author" content="Brock Benton"> <meta name="description" content="A prediction-powered USDC escrow system that automatically releases funds based on real-world outcomes verified through Polymarket, built on Base L2 with gasless transactions."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%93%9A&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://brockbenton.github.io/projects/base-bets/"> <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Brock</span> Benton </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/notes/index.html">notes </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/assets/pdf/resume/resume.pdf">resume </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Base Bets (MBC Hackathon)</h1> <p class="post-description">A prediction-powered USDC escrow system that automatically releases funds based on real-world outcomes verified through Polymarket, built on Base L2 with gasless transactions.</p> </header> <article> <p><em>Building trustless conditional payments using prediction markets as decentralized oracles</em></p> <hr> <h2 id="introduction">Introduction</h2> <p>What if you could make a bet with a friend—”I’ll pay you $50 if Bitcoin hits $100k by year-end”—and have it settle automatically, with no trust required?</p> <p>That’s what my team built at the Midwest Blockchain Conference hackathon. Base Bets is a prediction-powered escrow system where USDC funds are locked in a smart contract and automatically released based on real-world outcomes verified through Polymarket.</p> <p>In this write-up, I’ll explain the architecture, walk through the smart contract design, and share what I learned about building financial infrastructure on blockchain.</p> <p><strong><a href="https://github.com/brockbenton/base-bets" rel="external nofollow noopener" target="_blank">View the project on GitHub</a></strong></p> <hr> <h2 id="what-we-built">What We Built</h2> <p>A complete escrow platform featuring:</p> <ul> <li>✅ Solidity smart contracts deployed on Base L2</li> <li>✅ Automatic settlement via Polymarket prediction markets</li> <li>✅ Gasless transactions through ERC-4337 account abstraction</li> <li>✅ USDC stablecoin integration (real dollar-value escrows)</li> <li>✅ Emergency refund mechanism for unresolved markets</li> </ul> <hr> <h2 id="part-1-the-problem">Part 1: The Problem</h2> <h3 id="traditional-escrow-is-broken">Traditional Escrow is Broken</h3> <p>When two parties want to make a conditional agreement—”I’ll pay you X if Y happens”—they have three bad options:</p> <ol> <li> <strong>Trust each other</strong> → One party can refuse to pay</li> <li> <strong>Use a lawyer</strong> → Expensive, slow, overkill for small amounts</li> <li> <strong>Use an escrow service</strong> → Still requires trusting a third party</li> </ol> <p>The fundamental issue: someone has to decide when the condition is met and authorize the release of funds.</p> <h3 id="the-oracle-problem">The Oracle Problem</h3> <p>Smart contracts can hold and transfer funds automatically, but they can’t observe the real world. How does the contract know if Bitcoin hit $100k? If the Lakers won? If a bill passed Congress?</p> <p>This is the “oracle problem:” bringing real-world data on-chain in a trustworthy way.</p> <h3 id="our-solution-prediction-markets-as-oracles">Our Solution: Prediction Markets as Oracles</h3> <p>Polymarket is a prediction market where traders buy and sell shares on real-world outcomes. If you think Bitcoin will hit $100k, you buy YES shares. The market price reflects the crowd’s probability estimate.</p> <p>When the event happens, the market resolves: YES shares become worth $1, NO shares become worth $0. This resolution is verified by Polymarket’s Gamma API.</p> <p>We use this resolution as our oracle. Instead of trusting a single arbiter, we trust the economic incentives of a prediction market with millions of dollars at stake.</p> <hr> <h2 id="part-2-smart-contract-architecture">Part 2: Smart Contract Architecture</h2> <h3 id="the-escrow-data-structure">The Escrow Data Structure</h3> <p>Each escrow agreement stores everything needed for automatic settlement:</p> <pre><code class="language-solidity">struct Escrow {
+    address depositor;          // Who created the escrow
+    address beneficiary;        // Who receives USDC if depositor is wrong
+    uint256 amountA;            // Amount staked by depositor (6 decimals)
+    uint256 amountB;            // Amount staked by beneficiary (6 decimals)
+    string marketId;            // Polymarket condition ID
+    bool expectedOutcomeYes;    // If true, depositor wins when YES wins
+    Status status;              // Active, Resolved, or Refunded
+    uint256 createdAt;          // Block timestamp when created
+    bool beneficiaryAccepted;   // Whether beneficiary has locked their funds
+}
+</code></pre> <p>This is a <strong>two-sided escrow</strong> where both parties stake funds, and the winner takes all. The <code class="language-plaintext highlighter-rouge">marketId</code> links to a specific Polymarket question, and <code class="language-plaintext highlighter-rouge">expectedOutcomeYes</code> specifies which outcome the depositor is betting on.</p> <h3 id="creating-an-escrow">Creating an Escrow</h3> <p>When a depositor creates an escrow, they stake their USDC and specify how much the beneficiary must stake to accept:</p> <pre><code class="language-solidity">function createEscrow(
+    address beneficiary,
+    uint256 amountA,
+    uint256 amountB,
+    string calldata marketId,
+    bool expectedOutcomeYes
+) external nonReentrant returns (uint256 escrowId) {
+    // Validation
+    if (beneficiary == address(0)) revert InvalidAddress();
+    if (beneficiary == msg.sender) revert CannotEscrowToSelf();
+    if (amountA == 0 || amountB == 0) revert InvalidAmount();
+    if (bytes(marketId).length == 0) revert InvalidMarketId();
+
+    // Transfer USDC from depositor to this contract
+    usdc.safeTransferFrom(msg.sender, address(this), amountA);
+
+    // Create escrow
+    escrowId = escrowCount++;
+
+    escrows[escrowId] = Escrow({
+        depositor: msg.sender,
+        beneficiary: beneficiary,
+        amountA: amountA,
+        amountB: amountB,
+        marketId: marketId,
+        expectedOutcomeYes: expectedOutcomeYes,
+        status: Status.Active,
+        createdAt: block.timestamp,
+        beneficiaryAccepted: false
+    });
+
+    // Update stats
+    userStats[msg.sender].escrowsCreated++;
+
+    emit EscrowCreated(escrowId, msg.sender, beneficiary, amountA, marketId, expectedOutcomeYes);
+}
+</code></pre> <p>At this point, the escrow is <strong>pending</strong> and the beneficiary must accept before it’s active.</p> <h3 id="accepting-an-escrow">Accepting an Escrow</h3> <p>The beneficiary reviews the terms and stakes their side:</p> <pre><code class="language-solidity">function acceptEscrow(uint256 escrowId) external nonReentrant {
+    Escrow storage escrow = escrows[escrowId];
+
+    if (escrow.amountA == 0) revert EscrowDoesNotExist();
+    if (escrow.status != Status.Active) revert EscrowNotActive();
+    if (msg.sender != escrow.beneficiary) revert NotAuthorized();
+    if (escrow.beneficiaryAccepted) revert("Escrow already accepted");
+
+    // Transfer USDC from beneficiary to this contract
+    usdc.safeTransferFrom(msg.sender, address(this), escrow.amountB);
+
+    // Mark as accepted
+    escrow.beneficiaryAccepted = true;
+}
+</code></pre> <p>Now both parties have skin in the game. The contract holds <code class="language-plaintext highlighter-rouge">amountA + amountB</code>, and the winner takes all.</p> <p>Key security patterns:</p> <ul> <li> <strong><code class="language-plaintext highlighter-rouge">nonReentrant</code></strong>: Prevents reentrancy attacks during token transfers</li> <li> <strong><code class="language-plaintext highlighter-rouge">safeTransferFrom</code></strong>: OpenZeppelin’s safe ERC-20 transfer that reverts on failure</li> <li> <strong>Custom errors</strong>: Gas-efficient reverts with descriptive messages</li> </ul> <h3 id="resolution-winner-takes-all">Resolution: Winner Takes All</h3> <p>When the Polymarket market resolves, our off-chain resolver service detects it and calls the contract:</p> <pre><code class="language-solidity">function resolveEscrow(
+    uint256 escrowId,
+    bool marketResolvedYes
+) external nonReentrant {
+    if (msg.sender != resolver) revert OnlyResolver();
+
+    Escrow storage escrow = escrows[escrowId];
+
+    if (escrow.amountA == 0) revert EscrowDoesNotExist();
+    if (escrow.status != Status.Active) revert EscrowNotActive();
+    if (!escrow.beneficiaryAccepted) revert("Escrow not yet accepted");
+
+    // Update status
+    escrow.status = Status.Resolved;
+
+    // Total payout to winner
+    uint256 totalAmount = escrow.amountA + escrow.amountB;
+
+    // Determine recipient and update stats
+    address recipient;
+    if (marketResolvedYes == escrow.expectedOutcomeYes) {
+        // Depositor wins (they predicted correctly)
+        recipient = escrow.depositor;
+        userStats[escrow.depositor].totalWon += totalAmount;
+        userStats[escrow.depositor].escrowsWon++;
+        userStats[escrow.beneficiary].totalLost += totalAmount;
+        userStats[escrow.beneficiary].escrowsLost++;
+    } else {
+        // Beneficiary wins (depositor's prediction was wrong)
+        recipient = escrow.beneficiary;
+        userStats[escrow.beneficiary].totalWon += totalAmount;
+        userStats[escrow.beneficiary].escrowsWon++;
+        userStats[escrow.depositor].totalLost += totalAmount;
+        userStats[escrow.depositor].escrowsLost++;
+    }
+
+    // Transfer all funds to winner
+    usdc.safeTransfer(recipient, totalAmount);
+
+    emit EscrowResolved(escrowId, recipient, totalAmount, marketResolvedYes);
+}
+</code></pre> <p>The logic:</p> <ul> <li>Depositor bets that <code class="language-plaintext highlighter-rouge">expectedOutcomeYes</code> will match the market result</li> <li>If the market resolves the way depositor predicted → depositor wins both stakes</li> <li>If the market resolves the opposite way → beneficiary wins both stakes</li> </ul> <p>We also track statistics (<code class="language-plaintext highlighter-rouge">totalWon</code>, <code class="language-plaintext highlighter-rouge">escrowsWon</code>, etc.) for leaderboards and user profiles.</p> <h3 id="batch-resolution">Batch Resolution</h3> <p>For gas efficiency when multiple markets resolve simultaneously:</p> <pre><code class="language-solidity">function resolveEscrowBatch(
+    uint256[] calldata escrowIds,
+    bool[] calldata outcomes
+) external nonReentrant {
+    if (msg.sender != resolver) revert OnlyResolver();
+    require(escrowIds.length == outcomes.length, "Array length mismatch");
+
+    for (uint256 i = 0; i &lt; escrowIds.length; i++) {
+        // Skip invalid/inactive escrows instead of reverting
+        Escrow storage escrow = escrows[escrowIds[i]];
+        if (escrow.amountA == 0 || escrow.status != Status.Active || !escrow.beneficiaryAccepted) {
+            continue;
+        }
+        // ... resolution logic for each escrow
+    }
+}
+</code></pre> <p>This saves gas by amortizing the base transaction cost across multiple resolutions.</p> <h3 id="emergency-refund-the-safety-valve">Emergency Refund: The Safety Valve</h3> <p>What if a Polymarket market never resolves? We can’t let funds be locked forever:</p> <pre><code class="language-solidity">function emergencyRefund(uint256 escrowId) external nonReentrant {
+    Escrow storage escrow = escrows[escrowId];
+
+    if (escrow.amountA == 0) revert EscrowDoesNotExist();
+    if (escrow.status != Status.Active) revert EscrowNotActive();
+    if (block.timestamp &lt; escrow.createdAt + ESCROW_TIMEOUT) revert TimeoutNotReached();
+    if (msg.sender != escrow.depositor &amp;&amp; msg.sender != owner()) revert NotAuthorized();
+
+    escrow.status = Status.Refunded;
+
+    // Refund depositor's amount
+    usdc.safeTransfer(escrow.depositor, escrow.amountA);
+
+    // If beneficiary accepted and deposited, refund their amount too
+    if (escrow.beneficiaryAccepted) {
+        usdc.safeTransfer(escrow.beneficiary, escrow.amountB);
+    }
+
+    emit EscrowRefunded(escrowId, escrow.depositor, escrow.amountA, "timeout");
+}
+</code></pre> <p>After 7 days (<code class="language-plaintext highlighter-rouge">ESCROW_TIMEOUT</code>), either party can reclaim their funds if the market hasn’t resolved. Both sides get their original stakes back — it’s a no-contest refund, not a winner declaration.</p> <hr> <h2 id="part-3-the-resolver-service">Part 3: The Resolver Service</h2> <p>The smart contract can’t query Polymarket directly, it needs an off-chain service to bridge the data.</p> <h3 id="architecture">Architecture</h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Polymarket    │     │    Resolver     │     │  Smart Contract │
+│   Gamma API     │────▶│    Service      │────▶│  (Base L2)      │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+        │                       │                       │
+   Market data            Polls every             Calls resolve()
+   &amp; resolution           few minutes             when market ends
+</code></pre></div></div> <h3 id="how-it-works">How It Works</h3> <ol> <li> <strong>Polling</strong>: The resolver queries Polymarket’s Gamma API for market status</li> <li> <strong>Detection</strong>: When a market changes to “resolved”, extract the outcome</li> <li> <strong>Matching</strong>: Find all escrows linked to that marketId</li> <li> <strong>Settlement</strong>: Call <code class="language-plaintext highlighter-rouge">resolveEscrow()</code> for each affected escrow</li> </ol> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nf">checkAndResolve</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Get all pending escrows from contract events</span>
+    <span class="kd">const</span> <span class="nx">pendingEscrows</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getPendingEscrows</span><span class="p">();</span>
+    
+    <span class="k">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">escrow</span> <span class="k">of</span> <span class="nx">pendingEscrows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Check if market resolved</span>
+        <span class="kd">const</span> <span class="nx">market</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">polymarket</span><span class="p">.</span><span class="nf">getMarket</span><span class="p">(</span><span class="nx">escrow</span><span class="p">.</span><span class="nx">marketId</span><span class="p">);</span>
+        
+        <span class="k">if </span><span class="p">(</span><span class="nx">market</span><span class="p">.</span><span class="nx">resolved</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Call contract to settle</span>
+            <span class="k">await</span> <span class="nx">contract</span><span class="p">.</span><span class="nf">resolveEscrow</span><span class="p">(</span>
+                <span class="nx">escrow</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+                <span class="nx">market</span><span class="p">.</span><span class="nx">outcome</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">YES</span><span class="dl">"</span>
+            <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <h3 id="trust-assumptions">Trust Assumptions</h3> <p>The resolver is a centralized component so it can call <code class="language-plaintext highlighter-rouge">resolveEscrow()</code> with any outcome. We mitigate this through:</p> <ol> <li> <strong>Separation of concerns</strong>: Resolver can only trigger resolution, not steal funds</li> <li> <strong>Verifiability</strong>: All resolutions are on-chain and can be audited against Polymarket</li> <li> <strong>Emergency refund</strong>: Users can recover funds if resolver misbehaves</li> </ol> <p>For production, you’d decentralize this using Chainlink Functions or directly integrating with another oracle.</p> <hr> <h2 id="part-4-gasless-transactions">Part 4: Gasless Transactions</h2> <h3 id="the-ux-problem">The UX Problem</h3> <p>Traditional blockchain apps require users to:</p> <ol> <li>Buy ETH somewhere</li> <li>Transfer ETH to their wallet</li> <li>Pay gas fees for every transaction</li> </ol> <p>This is terrible UX. A user wanting to escrow $20 shouldn’t need to understand gas.</p> <h3 id="erc-4337-account-abstraction">ERC-4337: Account Abstraction</h3> <p>ERC-4337 introduces “smart accounts”—wallet contracts with programmable logic. Instead of externally-owned accounts (EOAs) that require ETH for every transaction, smart accounts can have gas paid by someone else.</p> <h3 id="our-implementation-coinbase-smart-wallet--cdp-paymaster">Our Implementation: Coinbase Smart Wallet + CDP Paymaster</h3> <p>We integrated Coinbase Smart Wallet, which provides ERC-4337 smart accounts with:</p> <ul> <li> <strong>Passkey authentication</strong>: Sign transactions with Face ID, no seed phrases</li> <li> <strong>Gas sponsorship</strong>: CDP Paymaster pays transaction fees</li> <li> <strong>Batching</strong>: Multiple operations in one transaction</li> </ul> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Traditional Flow:
+User EOA → Signs tx → Pays gas in ETH → Contract
+
+Our Flow:
+User → Smart Wallet → UserOperation → CDP Paymaster sponsors gas → Contract
+</code></pre></div></div> <h3 id="the-result">The Result</h3> <p>Users can:</p> <ol> <li>Sign up with just an email</li> <li>Deposit USDC (no ETH needed)</li> <li>Create escrows (gas sponsored)</li> <li>Receive winnings (gas sponsored)</li> </ol> <p>Zero crypto knowledge required. It feels like a normal web app.</p> <hr> <h2 id="part-5-why-base-l2">Part 5: Why Base L2?</h2> <h3 id="layer-2-economics">Layer 2 Economics</h3> <p>Ethereum mainnet transactions cost $5-50+ depending on congestion. For a $20 escrow, that’s unacceptable.</p> <p>Base is an L2 (Layer 2) built on the OP Stack. It batches transactions and posts compressed data to Ethereum, inheriting mainnet security at a fraction of the cost.</p> <table> <thead> <tr> <th>Metric</th> <th>Ethereum L1</th> <th>Base L2</th> </tr> </thead> <tbody> <tr> <td>Transaction cost</td> <td>$5-50</td> <td>$0.01-0.10</td> </tr> <tr> <td>Block time</td> <td>12 seconds</td> <td>2 seconds</td> </tr> <tr> <td>Security</td> <td>Native</td> <td>Inherited via rollup</td> </tr> </tbody> </table> <h3 id="why-this-matters">Why This Matters</h3> <p>At $0.05 per transaction, users can create $10 escrows economically. At $20 per transaction, nothing under $500 makes sense.</p> <p>The 100-1000x cost reduction unlocks an entire category of micro-agreements that were previously impractical.</p> <hr> <h2 id="part-6-security-considerations">Part 6: Security Considerations</h2> <h3 id="what-we-protected-against">What We Protected Against</h3> <p><strong>Reentrancy</strong>: Using OpenZeppelin’s <code class="language-plaintext highlighter-rouge">ReentrancyGuard</code> on all fund-moving functions.</p> <pre><code class="language-solidity">function createEscrow(...) external nonReentrant {
+    // Safe from reentrancy
+}
+</code></pre> <p><strong>Integer overflow</strong>: Solidity 0.8+ has built-in overflow checks.</p> <p><strong>Front-running</strong>: Not a major concern—escrow creation order doesn’t affect outcomes.</p> <p><strong>Flash loan attacks</strong>: Not applicable—no price oracles or liquidity pools to manipulate.</p> <h3 id="what-wed-add-for-production">What We’d Add for Production</h3> <ol> <li> <strong>Multi-sig resolver</strong>: Require multiple parties to agree on resolution</li> <li> <strong>Dispute period</strong>: Allow challenges before finalization</li> <li> <strong>Rate limiting</strong>: Prevent spam escrow creation</li> <li> <strong>Formal verification</strong>: Mathematically prove contract correctness</li> </ol> <hr> <h2 id="part-7-use-cases">Part 7: Use Cases</h2> <h3 id="peer-to-peer-bets">Peer-to-Peer Bets</h3> <p>“I bet you $50 the Lakers win the Finals.”</p> <p>Alice creates escrow staking $50, Bob accepts by staking $50. Market resolves. Winner takes $100.</p> <h3 id="asymmetric-odds">Asymmetric Odds</h3> <p>“I’ll bet $100 against your $20 that Bitcoin hits $150k.”</p> <p>The depositor can set different stake amounts. If you’re confident, put more skin in the game.</p> <h3 id="conditional-business-agreements">Conditional Business Agreements</h3> <p>“Bonus paid if we hit Q4 revenue targets.”</p> <p>Link payment to verifiable financial metrics tracked by prediction markets.</p> <hr> <h2 id="conclusion">Conclusion</h2> <p>Building Base Bets taught me how financial infrastructure actually works on blockchain.</p> <p><strong>Key takeaways:</strong></p> <ul> <li>Prediction markets can serve as decentralized oracles for real-world events</li> <li>Account abstraction (ERC-4337) enables real consumer UX</li> <li>L2s make micro-transactions economically viable</li> </ul> <p>The full source code is available on GitHub.</p> <p><strong><a href="https://github.com/brockbenton/base-bets" rel="external nofollow noopener" target="_blank">→ View on GitHub</a></strong></p> <hr> <h2 id="team">Team</h2> <p>Built at the Midwest Blockchain Conference Hackathon with:</p> <ul> <li> <strong>Brock Benton</strong> — Smart Contract Development</li> <li> <strong>Tyler Martin</strong> — Frontend Development</li> <li> <strong>Sri Vamsi Andavarapu</strong> — Backend/Resolver Integration</li> </ul> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Brock Benton. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: December 18, 2025. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> </body> </html>

@@ -66,7 +66,12 @@ ninja.data = [{
           section: "News",},{id: "news-over-this-last-weekend-i-participated-in-my-first-hackathon-at-the-midwest-blockchain-conference-our-team-developed-a-prediction-powered-escrow-that-acts-as-an-onchain-commitment-device-alongside-hacking-i-networked-with-dozens-of-students-recruiters-founders-and-venture-capitalists-from-across-the-nation",
           title: 'Over this last weekend, I participated in my first hackathon at the Midwest...',
           description: "",
-          section: "News",},{id: "projects-distributed-blockchain-network-c",
+          section: "News",},{id: "projects-base-bets-mbc-hackathon",
+          title: 'Base Bets (MBC Hackathon)',
+          description: "A prediction-powered USDC escrow system that automatically releases funds based on real-world outcomes verified through Polymarket, built on Base L2 with gasless transactions.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/base-bets/";
+            },},{id: "projects-distributed-blockchain-network-c",
           title: 'Distributed Blockchain Network (C++)',
           description: "A proof-of-work blockchain in C++ featuring SHA-256 mining, transaction validation, and peer-to-peer networking with automatic distributed consensus.",
           section: "Projects",handler: () => {

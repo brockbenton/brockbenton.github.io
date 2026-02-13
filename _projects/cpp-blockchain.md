@@ -348,7 +348,7 @@ for (size_t i = 0; i < json.length(); i++) {
 
 ## Conclusion
 
-Building a blockchain from scratch demystified how cryptocurrencies actually work. It's not magic—it's clever application of cryptography, distributed systems, and economic incentives.
+Building a blockchain from scratch demystified how cryptocurrencies actually work. It's not magic; it's clever application of cryptography, distributed systems, and economic incentives.
 
 **Key takeaways:**
 - Blockchains are just tamper-evident linked lists
@@ -358,4 +358,4 @@ Building a blockchain from scratch demystified how cryptocurrencies actually wor
 
 The full source code is available on GitHub.
 
-**[→ View on GitHub](https://github.com/yourusername/cpp-blockchain)**
+**[→ View on GitHub](https://github.com/brockbenton/cpp-blockchain)**

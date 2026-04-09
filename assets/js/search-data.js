@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/resume.pdf";
           },
-        },{id: "post-the-underlying-demand-for-cryptocurrency-technology",
+        },{id: "post-the-forgotten-means",
+        
+          title: "The Forgotten Means",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/forgotten-means/";
+          
+        },
+      },{id: "post-the-underlying-demand-for-cryptocurrency-technology",
         
           title: "The Underlying Demand for Cryptocurrency Technology",
         

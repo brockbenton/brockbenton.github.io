@@ -83,7 +83,12 @@ ninja.data = [{
           section: "News",},{id: "news-i-am-extremely-excited-to-announce-that-i-will-be-working-at-gemini-this-summer-as-a-software-engineering-intern-in-nyc-thanks-to-everyone-for-the-continued-support",
           title: 'I am extremely excited to announce that I will be working at Gemini...',
           description: "",
-          section: "News",},{id: "projects-base-bets-mbc-hackathon",
+          section: "News",},{id: "projects-augur",
+          title: 'Augur',
+          description: "A Solana lending protocol that lets you borrow USDC against prediction-market positions",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/10_augur/";
+            },},{id: "projects-base-bets-mbc-hackathon",
           title: 'Base Bets (MBC Hackathon)',
           description: "A prediction-powered USDC escrow system that automatically releases funds based on real-world outcomes verified through Polymarket, built on Base L2 with gasless transactions.",
           section: "Projects",handler: () => {

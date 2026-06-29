@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <strong>University of Colorado Boulder</strong> • <strong>Incoming SWE @ Gemini</strong> • <strong>2024 Boettcher Scholar</strong>
+subtitle: <strong>University of Colorado Boulder</strong> • <strong>SWE @ Gemini</strong> • <strong>2024 Boettcher Scholar</strong>
 
 profile:
   align: right
@@ -27,8 +27,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am an honors Computer Science and Economics student at the University of Colorado Boulder. Within the Computer Science department, I am a Co-President for CU Blockchain and a Co-Chair for the CS Undergraduate Advising Committee (CSUAC). 
+I am an honors Computer Science and Economics Minor student at the University of Colorado Boulder. Within the Computer Science department, I am a Co-President for CU Blockchain and a Co-Chair for the CS Undergraduate Advising Committee (CSUAC). 
 
 My interests lie at the crossroads of theory and systems. I am particularly focused on the use cases of blockchain technology, the rise of agentic AI, and the philosphical foundations of economics.
 
-As of March 2026, I will be working at Gemini this summer as a Software Engineering Intern in NYC. Prior to this role, I finished my third summer at Alamosa School District working in the information technology department. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome’s FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members.
+I am currently working at Gemini as a Software Engineering Intern - the leading infrastructure for all things crypto. Prior to this role, I worked in the information technology department at Alamosa School District. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome’s FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members.

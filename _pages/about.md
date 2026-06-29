@@ -31,4 +31,4 @@ I am an honors Computer Science and Economics Minor student at the University of
 
 My interests lie at the crossroads of theory and systems. I am particularly focused on the use cases of blockchain technology, the rise of agentic AI, and the philosphical foundations of economics.
 
-I am currently working at Gemini as a Software Engineering Intern - the leading infrastructure for all things crypto. Prior to this role, I worked in the information technology department at Alamosa School District. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome’s FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members.
+I am currently working at Gemini as a Software Engineering Intern. Prior to this role, I worked in the information technology department at Alamosa School District. Within my role, I managed the repairs, inventorying (via Incident IQ), and cloning (via the FOG Project and Chrome’s FlexOS) of over 3000 laptops and desktops that support 2100+ students and 440+ staff members.

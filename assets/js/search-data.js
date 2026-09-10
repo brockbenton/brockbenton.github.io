@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/assets/pdf/resume/resume.pdf";
           },
-        },{id: "post-the-forgotten-means",
+        },{id: "post-things-i-learned-this-summer",
+        
+          title: "Things I Learned This Summer",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/things-i-learned-this-summer/";
+          
+        },
+      },{id: "post-the-forgotten-means",
         
           title: "The Forgotten Means",
         

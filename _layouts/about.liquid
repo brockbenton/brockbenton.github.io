@@ -70,10 +70,21 @@ layout: default
         <div class="contact-icons">{% include social.liquid %}</div>
 
         <div class="contact-note">{{ site.contact_note }}</div>
+
+        <div class="contact-note">
+          &copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}.
+          Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+          {% if site.impressum_path %}
+            <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+          {% endif %}
+          {% if site.last_updated %}
+            Last updated: {{ 'now' | date: '%B %d, %Y' }}.
+          {% endif %}
+        </div>
       </div>
     {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+    {% if site.newsletter and site.newsletter.enabled %}
       {% include newsletter.liquid center=true %}
     {% endif %}
   </article>

@@ -45,7 +45,7 @@ ninja.data = [{
         
           title: "The Forgotten Means",
         
-        description: "The economic theory of scarce means and human action explain why buying underpriced items at garage sales isn&#39;t exploitation but a mutually beneficial exchange.",
+        description: "",
         section: "Posts",
         handler: () => {
           

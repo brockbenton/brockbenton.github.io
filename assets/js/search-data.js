@@ -74,12 +74,7 @@ ninja.data = [{
             window.location.href = "/blog/2025/utcc/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-am-grateful-to-have-been-selected-as-a-recipient-of-the-boettcher-scholarship-a-prestigious-full-ride-award-granted-each-year-to-50-colorado-high-school-seniors-who-demonstrate-exceptional-academic-achievement-intellectual-curiosity-leadership-community-and-school-involvement-and-strong-character",
+      },{id: "news-i-am-grateful-to-have-been-selected-as-a-recipient-of-the-boettcher-scholarship-a-prestigious-full-ride-award-granted-each-year-to-50-colorado-high-school-seniors-who-demonstrate-exceptional-academic-achievement-intellectual-curiosity-leadership-community-and-school-involvement-and-strong-character",
           title: 'I am grateful to have been selected as a recipient of the Boettcher...',
           description: "",
           section: "News",},{id: "news-i-had-the-opportunity-to-compete-in-the-2025-daniels-fund-national-ethics-case-competition-where-my-team-and-i-applied-ethical-principles-to-real-world-business-challenges-navigating-complex-scenarios-where-moral-values-and-business-interests-collide",

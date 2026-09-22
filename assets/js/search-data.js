@@ -34,7 +34,7 @@ ninja.data = [{
         
           title: "Things I Learned This Summer",
         
-        description: "",
+        description: "A reflection on lessons from summer 2026.",
         section: "Posts",
         handler: () => {
           
@@ -45,7 +45,7 @@ ninja.data = [{
         
           title: "The Forgotten Means",
         
-        description: "",
+        description: "The economic theory of scarce means and human action explain why buying underpriced items at garage sales isn&#39;t exploitation but a mutually beneficial exchange.",
         section: "Posts",
         handler: () => {
           

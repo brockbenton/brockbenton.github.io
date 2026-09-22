@@ -2,7 +2,7 @@
 layout: post
 title: "Things I Learned This Summer"
 date: 2026-09-08 11:00:00 +0000
-description: 
+description: A reflection on lessons from summer 2026.
 categories: [personal-notes]
 tags: [lifestyle]
 author: Brock Benton

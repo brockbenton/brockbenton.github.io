@@ -45,7 +45,7 @@ ninja.data = [{
         
           title: "The Forgotten Means",
         
-        description: "",
+        description: "The economic theory of scarce means and human action explain why buying underpriced items at garage sales isn&#39;t exploitation but a mutually beneficial exchange.",
         section: "Posts",
         handler: () => {
           
@@ -56,7 +56,7 @@ ninja.data = [{
         
           title: "The Underlying Demand for Cryptocurrency Technology",
         
-        description: "",
+        description: "An examination of the &quot;third-party problem&quot; in digital payments, arguing that cryptocurrency&#39;s trustless design serves real demand from groups the traditional banking system fails.",
         section: "Posts",
         handler: () => {
           

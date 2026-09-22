@@ -2,7 +2,7 @@
 layout: post
 title: "The Forgotten Means"
 date: 2026-04-09 11:00:00 +0000
-description: 
+description: The economic theory of scarce means and human action explain why buying underpriced items at garage sales isn't exploitation but a mutually beneficial exchange.
 categories: [personal-notes]
 tags: [economics]
 author: Brock Benton

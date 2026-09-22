@@ -2,7 +2,7 @@
 layout: post
 title: "The Underlying Demand for Cryptocurrency Technology"
 date: 2025-11-23 11:00:00 +0000
-description: 
+description: An examination of the "third-party problem" in digital payments, arguing that cryptocurrency's trustless design serves real demand from groups the traditional banking system fails.
 categories: [personal-notes]
 tags: [blockchain]
 author: Brock Benton

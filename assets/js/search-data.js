@@ -28,7 +28,7 @@ ninja.data = [{
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/assets/pdf/resume/resume.pdf";
+            window.location.href = "/resume/";
           },
         },{id: "post-things-i-learned-this-summer",
         

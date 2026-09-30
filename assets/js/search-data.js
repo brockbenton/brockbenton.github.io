@@ -104,8 +104,8 @@ ninja.data = [{
           description: "A proof-of-work blockchain in C++ featuring SHA-256 mining, transaction validation, and peer-to-peer networking with automatic distributed consensus.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/cpp-blockchain/";
-            },},{id: "projects-git-infastructure-with-ci-cd-pipeline",
-          title: 'Git Infastructure with CI/CD Pipeline',
+            },},{id: "projects-git-infrastructure-with-ci-cd-pipeline",
+          title: 'Git Infrastructure with CI/CD Pipeline',
           description: "A fully-fledged self-hosted Git server with enterprise-grade automation capabilities.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/githomelab/";

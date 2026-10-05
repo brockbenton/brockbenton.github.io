@@ -25,7 +25,7 @@ This can be split into two skills:
 
 Partaking in different cultures is an incredible way to meet more people, have a greater sense of the world, and become more appreciative of what people have to offer. One easy way to do this is by eating and experiencing new cuisines. As Anthony Bourdain would say, "Food is everything we are."
 
-### A variety of specific technical concepts.
+### A Variety of Specific Technical Concepts.
 
 1. **Kafka.** An event streaming platform used to publish, store, and process real-time data streams. 
 2. **[Railway Oriented Programming](https://fsharpforfunandprofit.com/rop/).** The link describes it much better than I ever would, but the key takeaway: `type Result = Success | ValidationError | Update Error | etc` becomes `type TwoTrack<TEntity> = Success of TEntity | Failure of ErrorMessage` where `type ErrorMessage = NameMustNotBeBlank | EmailMustNotBeBlank`.

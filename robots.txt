@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://brockbenton.github.io/sitemap.xml
+Sitemap: https://brockbenton.com/sitemap.xml

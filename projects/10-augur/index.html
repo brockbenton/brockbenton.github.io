@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Augur (PBC Hackathon) · Brock Benton</title>
+<meta name="description" content="A Solana lending protocol that lets you borrow USDC against prediction-market positions">
+<meta property="og:title" content="Augur (PBC Hackathon) · Brock Benton">
+<meta property="og:description" content="A Solana lending protocol that lets you borrow USDC against prediction-market positions">
+<meta property="og:image" content="https://brockbenton.com/assets/img/og-image.png">
+<link rel="canonical" href="https://brockbenton.com/projects/10-augur/">
+<link rel="icon" href="/assets/img/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/main.css?v=1793292496">
+<link type="application/atom+xml" rel="alternate" href="https://brockbenton.com/feed.xml" title="Brock Benton" />
+
+</head>
+<body>
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <header class="site-header">
+  <a class="wordmark" href="/">brock benton</a>
+  <nav>
+    <a href="/blog/">blog</a>
+    <a href="https://github.com/brockbenton">github</a>
+    <a href="https://linkedin.com/in/brockbenton">linkedin</a>
+    <a href="mailto:brock.benton@colorado.edu">email</a>
+    <a class="btn" href="/assets/pdf/resume/resume.pdf">resume ↗</a>
+  </nav>
+</header>
+
+    <main>
+      <article class="prose">
+  <a class="back" href="/#work">← work</a>
+  <h1>Augur (PBC Hackathon)</h1>
+  <p class="meta">A Solana lending protocol that lets you borrow USDC against prediction-market positions</p>
+  <h2 id="overview">Overview</h2>
+
+<p>Augur is a DeFi lending protocol built at University of Pennsylvania’s 2026 Blockchain Conference. The product
+treats tokenized prediction-market positions (YES/NO outcome tokens from venues
+like Polymarket) as productive collateral: instead of locking capital in a bet
+until resolution, holders can deposit their positions into a Solana vault and
+borrow USDC against them.</p>
+
+<p>The thesis is narrow on purpose. Augur is not a prediction market; it is a capital-efficiency layer sitting
+<em>on top of</em> existing prediction-market assets. The core claim is that an
+outcome token with a 70% implied probability and a near-term resolution date is
+economically useful collateral, and Solana is a good place to make it
+borrowable.</p>
+
+<p>I originated the idea and led the protocol design before the hackathon.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p><strong>High level.</strong> A user deposits prediction-market positions into a
+per-user vault on Solana. An offchain risk engine reads the position’s implied
+probability, time to resolution, and market liquidity, and computes a borrow
+cap and maximum loan-to-value ratio. The user can then borrow USDC up to that
+cap, repay at any time, and withdraw their collateral. If the position’s
+risk profile degrades past the LTV threshold, the position is liquidated.</p>
+
+<p><strong>Low level: the borrow loop.</strong></p>
+
+<ol>
+  <li><strong>Deposit.</strong> <code class="language-plaintext highlighter-rouge">deposit_collateral</code> CPIs an SPL token transfer from the
+user’s token account into a PDA-owned vault token account, keyed on
+<code class="language-plaintext highlighter-rouge">["vault", owner]</code>. The vault’s <code class="language-plaintext highlighter-rouge">collateral_amount</code> is incremented.</li>
+  <li><strong>Risk computation (offchain).</strong> A backend service ingests market data,
+computes <code class="language-plaintext highlighter-rouge">approved_borrow_cap_usdc</code> and <code class="language-plaintext highlighter-rouge">max_ltv_bps</code>, and signs the
+parameters.</li>
+  <li><strong>Borrow.</strong> <code class="language-plaintext highlighter-rouge">borrow</code> opens a <code class="language-plaintext highlighter-rouge">LoanPosition</code> PDA keyed on <code class="language-plaintext highlighter-rouge">["loan", owner]</code>.
+The program enforces <code class="language-plaintext highlighter-rouge">requested_usdc ≤ approved_borrow_cap_usdc</code>, caps
+<code class="language-plaintext highlighter-rouge">max_ltv_bps</code> at 5000 (50%), and records the loan state onchain.</li>
+  <li><strong>Repay.</strong> <code class="language-plaintext highlighter-rouge">repay</code> requires full repayment of <code class="language-plaintext highlighter-rouge">borrowed_usdc</code> and flips
+the loan status to <code class="language-plaintext highlighter-rouge">Repaid</code>.</li>
+  <li><strong>Withdraw.</strong> <code class="language-plaintext highlighter-rouge">withdraw_collateral</code> only succeeds after repayment; the
+vault PDA signs a token transfer back to the owner using its derived
+seeds.</li>
+  <li><strong>Liquidation.</strong> <code class="language-plaintext highlighter-rouge">force_liquidate</code> is admin-gated and flips loan status
+to <code class="language-plaintext highlighter-rouge">Liquidated</code> when LTV is breached.</li>
+</ol>
+
+<p>The contract deliberately keeps risk math <em>offchain</em>. The onchain program
+trusts a signed borrow cap rather than recomputing LTV from oracle feeds. This
+keeps the Anchor program small and auditable, and pushes the hard part
+(probability modeling, liquidity adjustment, time-decay) to a service that can
+be iterated without a redeploy.</p>
+
+<h2 id="what-i-built">What I Built</h2>
+
+<p>I wrote the Anchor program, <code class="language-plaintext highlighter-rouge">programs/predifi-vault/src/lib.rs</code>, which is
+the onchain core of the protocol. About 330 lines of Rust covering:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">VaultAccount</code> and <code class="language-plaintext highlighter-rouge">LoanPosition</code> PDAs with deterministic seed derivation</li>
+  <li>Five instructions: <code class="language-plaintext highlighter-rouge">deposit_collateral</code>, <code class="language-plaintext highlighter-rouge">borrow</code>, <code class="language-plaintext highlighter-rouge">repay</code>,
+<code class="language-plaintext highlighter-rouge">withdraw_collateral</code>, <code class="language-plaintext highlighter-rouge">force_liquidate</code></li>
+  <li>SPL token CPIs with PDA-signed transfers on withdrawal</li>
+  <li>Ten explicit error variants (<code class="language-plaintext highlighter-rouge">ExceedsApprovedBorrowCap</code>, <code class="language-plaintext highlighter-rouge">LtvTooHigh</code>,
+<code class="language-plaintext highlighter-rouge">LoanStillActive</code>, etc.) rather than generic panics</li>
+  <li>Event emissions (<code class="language-plaintext highlighter-rouge">CollateralDeposited</code>, <code class="language-plaintext highlighter-rouge">LoanOpened</code>, <code class="language-plaintext highlighter-rouge">LoanRepaid</code>,
+<code class="language-plaintext highlighter-rouge">PositionLiquidated</code>) so the frontend and indexer can react to state
+changes without polling</li>
+</ul>
+
+<p>The program compiles cleanly and the PDA + instruction logic holds up in
+local tests. The final demo path ended up routing through a mocked backend
+rather than hitting the deployed program directly due to hackathon time constraints.</p>
+
+<h2 id="stack">Stack</h2>
+
+<ul>
+  <li><strong>Onchain:</strong> Solana + Anchor (Rust)</li>
+  <li><strong>Offchain risk engine:</strong> Node.js / TypeScript</li>
+  <li><strong>Frontend:</strong> React + Vite + Tailwind</li>
+  <li><strong>Agent:</strong> OpenClaw + Swig smart accounts (for human-guardrailed autonomy)</li>
+</ul>
+
+<h2 id="repo">Repo</h2>
+
+<p><a href="https://github.com/grigoryshatalin/PennSubmission2026">github.com/grigoryshatalin/PennSubmission2026</a></p>
+
+</article>
+
+    </main>
+    <footer class="site-footer">
+  <span>© 2026 Brock Benton</span>
+  <span class="links">
+    <a href="https://github.com/brockbenton">github</a>
+    <a href="https://linkedin.com/in/brockbenton">linkedin</a>
+    <a href="mailto:brock.benton@colorado.edu">email</a>
+    <a href="/feed.xml">rss</a>
+  </span>
+</footer>
+
+  </div>
+  <script src="/assets/js/dots.js?v=1793292496" defer></script>
+</body>
+</html>

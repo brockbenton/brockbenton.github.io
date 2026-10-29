@@ -1,0 +1,27 @@
+---
+layout: default
+title: blog
+permalink: /blog/
+---
+<section class="intro">
+  <h1>blog</h1>
+  <p class="tagline">notes on whatever I'm thinking about.</p>
+</section>
+
+{% assign years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+{% for year in years %}
+<section>
+  <h2>{{ year.name }}</h2>
+  <ul class="rows">
+    {% for post in year.items %}
+    <li class="row">
+      <span class="main">
+        <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% if post.description %}<span class="sub">{{ post.description }}</span>{% endif %}
+      </span>
+      <span class="date">{{ post.date | date: "%b %-d" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

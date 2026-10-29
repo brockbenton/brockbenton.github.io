@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<section class="intro">
+  <h1>Brock Benton</h1>
+  <p class="tagline">computer science + economics @ CU · incoming Base · prev. Gemini</p>
+  <div class="about">
+    <p>I build onchain systems. At Gemini I designed and built a new compliance enforcement service for onchain transfers, and next summer I'm joining Base at Coinbase.</p>
+    <p>At CU Boulder I study computer science and economics and run CU Blockchain (the best university org on campus). Outside of class, I can be found hiking through the Colorado wilderness or learning to cook a new meal for my roommates.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>experience</h2>
+  <ul class="rows">
+    {% for job in site.data.experience %}
+    {% capture head %}
+          <span class="logo">
+            {% if job.logo %}<img src="{{ job.logo | relative_url }}" alt="">{% else %}{{ job.company | slice: 0 }}{% endif %}
+          </span>
+          <span class="main">
+            <span class="title">{{ job.company }}</span>
+            <span class="sub">{{ job.role }}{% if job.team %} · {{ job.team }}{% endif %}</span>
+          </span>
+          <span class="date">{{ job.start }} – {{ job.end | default: "now" }}</span>
+    {% endcapture %}
+    {% if job.points or job.location %}
+    <li class="job">
+      <details>
+        <summary class="row">
+          {{ head }}
+          <span class="chevron" aria-hidden="true">+</span>
+        </summary>
+        <div class="job-body">
+          {% if job.points %}
+          <ul>
+            {% for point in job.points %}<li>{{ point }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <p class="job-meta">
+            {% if job.location %}{{ job.location }}{% endif %}{% if job.location and job.url %} · {% endif %}{% if job.url %}<a href="{{ job.url }}">{{ job.url | remove: "https://" | remove: "http://" }} ↗</a>{% endif %}
+          </p>
+        </div>
+      </details>
+    </li>
+    {% else %}
+    <li class="job plain row">
+      {{ head }}
+      <span class="chevron" aria-hidden="true"></span>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="work">
+  <h2>featured work</h2>
+  <ul class="rows">
+    {% assign projects = site.projects | sort: "importance" %}
+    {% for p in projects %}
+    <li class="row">
+      <span class="main">
+        <a class="title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <span class="sub">{{ p.description }}</span>
+      </span>
+      <span class="arrow">→</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="writing">
+  <h2>writing</h2>
+  <ul class="rows">
+    {% for post in site.posts limit: 3 %}
+    <li class="row">
+      <span class="main"><a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+      <span class="date">{{ post.date | date: "%b %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="more" href="{{ '/blog/' | relative_url }}">all posts →</a>
+</section>

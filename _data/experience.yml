@@ -1,0 +1,27 @@
+# Newest first. `logo` is a path under /assets/img/logos/; leave blank to show initials.
+# A row gets a dropdown when it has `points` or a `location`; with neither it is a plain row.
+- company: Coinbase
+  role: Incoming Software Engineering Intern (Base)
+  location: San Francisco, CA
+  start: May 2027
+  end: Aug 2027
+  url: https://coinbase.com
+  logo: /assets/img/logos/coinbase.svg
+
+- company: Gemini
+  role: Software Engineering Intern
+  location: New York, NY
+  start: May 2026
+  end: Aug 2026
+  url: https://gemini.com
+  logo: /assets/img/logos/gemini.png
+  points:
+    - Designed and led the creation of a new onchain compliance enforcement service, defining the threat model and phased rollout strategy before implementation
+    - Built a low-latency gRPC service that reconciles risk signals for onchain addresses, merging internal and external vendor results into a unified risk verdict
+    - Architected a Kafka-driven asynchronous completion engine that ensures required post-transfer compliance obligations reach a terminal state through Redis-based leader election
+
+# - company: Alamosa School District
+#   role: IT
+#   start:
+#   end:
+#   logo:

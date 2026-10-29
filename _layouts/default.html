@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="wrap">
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+  <script src="{{ '/assets/js/dots.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+</body>
+</html>

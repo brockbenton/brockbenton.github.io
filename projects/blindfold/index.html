@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Blindfold (UBC Hackathon) · Brock Benton</title>
+<meta name="description" content="Private x402 payments for AI agents, using blind-signed ecash backed by a Solana USDC vault">
+<meta property="og:title" content="Blindfold (UBC Hackathon) · Brock Benton">
+<meta property="og:description" content="Private x402 payments for AI agents, using blind-signed ecash backed by a Solana USDC vault">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brockbenton.com/projects/blindfold/">
+<meta property="og:site_name" content="Brock Benton">
+<meta property="og:image" content="https://brockbenton.com/assets/img/og-image.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+  // Set the theme before first paint: saved choice, else system preference.
+  (() => {
+    let saved;
+    try { saved = localStorage.getItem("theme"); } catch {}
+    const system = matchMedia("(prefers-color-scheme: dark)");
+    const valid = saved === "dark" || saved === "light";
+    document.documentElement.dataset.theme = valid ? saved : system.matches ? "dark" : "light";
+  })();
+</script>
+<link rel="canonical" href="https://brockbenton.com/projects/blindfold/">
+<link rel="icon" href="/assets/img/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/main.css?v=1795410877">
+<link type="application/atom+xml" rel="alternate" href="https://brockbenton.com/feed.xml" title="Brock Benton" />
+
+</head>
+<body>
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <header class="site-header">
+  <a class="wordmark" href="/">brock benton</a>
+  <nav>
+    <a href="/blog/">blog</a>
+    <a href="https://github.com/brockbenton">github</a>
+    <a href="https://linkedin.com/in/brockbenton">linkedin</a>
+    <a href="mailto:brockbentons@gmail.com">email</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
+    <a class="btn" href="/assets/pdf/resume/resume.pdf">resume ↗</a>
+  </nav>
+</header>
+
+    <main>
+      <article class="prose">
+  <a class="back" href="/#work">← work</a>
+  <h1>Blindfold (UBC Hackathon)</h1>
+  <p class="meta">Private x402 payments for AI agents, using blind-signed ecash backed by a Solana USDC vault</p>
+  <h2 id="overview">Overview</h2>
+
+<p>Blindfold lets AI agents pay for data per API call without publishing what
+they’re researching. It’s a custom x402 v2 payment scheme built on
+<a href="https://cashu.space">Cashu</a> ecash and a USDC vault on Solana. We built it at the
+UBC 2026 hackathon.</p>
+
+<p>I came up with the idea and led the engineering.</p>
+
+<p>With the standard x402 <code class="language-plaintext highlighter-rouge">exact</code> scheme on Solana, every paid call is a public
+USDC transfer, and sellers can attach a memo that names the feed, like
+<code class="language-plaintext highlighter-rouge">whale-flow/SOL</code>. Anyone watching the chain can see which wallet is buying which
+data. If that wallet also trades, its research can give the trade away.</p>
+
+<p>A direct Blindfold purchase creates no transaction. To test that, we also built
+an observer that tries to attribute purchases from public chain data. In our
+devnet demo it identified 3 of 3 standard x402 purchases and 0 of 5 Blindfold
+purchases.</p>
+
+<p>Blindfold is an unaudited devnet prototype.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p><strong>High level.</strong> An owner deposits USDC into a shared vault, and a mint gives
+them blind-signed tokens locked to registered data providers. The agent holds
+those tokens instead of a wallet key and pays in an HTTP header. The provider
+redeems them at the mint before serving the data, and the mint pays providers
+from the vault in batches.</p>
+
+<p><strong>Low level: the payment loop.</strong></p>
+
+<ol>
+  <li><strong>Deposit.</strong> <code class="language-plaintext highlighter-rouge">deposit</code> transfers USDC to the vault and writes a
+<code class="language-plaintext highlighter-rouge">DepositRecord</code> PDA containing the quote’s 32-byte reference. The mint polls
+these records to credit the quote.</li>
+  <li><strong>Issue.</strong> The owner sends blinded outputs and the mint signs them without
+seeing the final tokens. The owner unblinds them, verifies the DLEQ proofs,
+and hands the agent a token file.</li>
+  <li><strong>Check reserves.</strong> Before its first purchase, and every 10 after that by
+default, the agent reads the vault balance and the onchain issuance log. It
+refuses to pay if the vault holds less than the mint’s outstanding claim.</li>
+  <li><strong>Pay.</strong> The provider returns HTTP 402. The wallet checks the offer against
+its limits, selects exact change, and moves those proofs to pending on disk
+before sending them in the <code class="language-plaintext highlighter-rouge">PAYMENT-SIGNATURE</code> header.</li>
+  <li><strong>Redeem.</strong> The provider signs the proofs’ lock and redeems them. The mint
+records the spent proofs and credits the provider in one PostgreSQL
+transaction, so one double-spent proof rolls back the whole request.</li>
+  <li><strong>Settle.</strong> <code class="language-plaintext highlighter-rouge">settle_batch</code> pays 1 to 8 registered providers per batch. Payouts
+run on fixed windows, hold back recent redemptions, and round down to 10¢, so
+their timing and amounts reveal less.</li>
+</ol>
+
+<p>The agent reads untrusted feeds, so its spending limits are enforced in the
+wallet, outside the model: a per-call cap, a session budget, and owner approval
+above a threshold. Tokens can only be redeemed by registered providers, so a
+prompt-injected “pay this URL” can’t send funds to an unregistered address.</p>
+
+<h2 id="where-privacy-breaks-down">Where Privacy Breaks Down</h2>
+
+<ul>
+  <li><strong>It needs a crowd.</strong> Deposits and payouts are public. With a single
+depositor, the observer can link them to the provider that got paid. With <code class="language-plaintext highlighter-rouge">n</code>
+equal deposits and one payout, its best guess is about <code class="language-plaintext highlighter-rouge">1/n</code>, and an unusual
+deposit amount can still stand out.</li>
+  <li><strong>The mint is custodial.</strong> The issuance log makes its published claims
+auditable, but a dishonest mint could issue tokens without logging them.</li>
+  <li><strong>Metadata remains.</strong> Providers still see requests and IP addresses, and
+Blindfold has no network anonymity layer.</li>
+  <li><strong>Redemption comes before delivery.</strong> A lost response can spend tokens
+without returning data.</li>
+</ul>
+
+<h2 id="what-we-built">What We Built</h2>
+
+<p><strong>Vault:</strong> an Anchor program in Rust.</p>
+
+<ul>
+  <li>USDC custody, a provider registry, deposit records, and payouts restricted to
+registered accounts</li>
+  <li>Sequential batch IDs, so two transactions can’t settle the same batch</li>
+  <li>An <code class="language-plaintext highlighter-rouge">IssuanceLog</code> PDA that tracks cumulative issued and settled totals</li>
+</ul>
+
+<p><strong>Mint:</strong> TypeScript, Hono, and PostgreSQL.</p>
+
+<ul>
+  <li>Blind signing with DLEQ proofs, following Cashu’s BDHKE</li>
+  <li>Double-spend prevention and replay-safe issuance</li>
+  <li>Settlement that recovers from a crash between signing and confirmation</li>
+</ul>
+
+<p><strong>Wallet and agents:</strong> a shared wallet SDK with three agents on top.</p>
+
+<ul>
+  <li>Exact-change selection using subset-sum dynamic programming, spending limits,
+and recovery of pending proofs</li>
+  <li>A scripted CLI agent, an LLM research loop, and an MCP server for Claude Code
+and Claude Desktop that asks for approval through MCP elicitation</li>
+</ul>
+
+<p><strong>Providers and observer:</strong></p>
+
+<ul>
+  <li>A sample data provider that accepts both <code class="language-plaintext highlighter-rouge">exact</code> and <code class="language-plaintext highlighter-rouge">blindfold</code> on the same
+route</li>
+  <li>A gateway that takes Blindfold tokens and buys from existing <code class="language-plaintext highlighter-rouge">exact</code> vendors
+through one shared wallet</li>
+  <li>The observer, fed by a filtered QuickNode Stream with RPC fallback, plus a
+live demo dashboard and a public vault history page</li>
+</ul>
+
+<p>GitHub Actions builds, typechecks, and tests the TypeScript workspace against
+PostgreSQL 16 and 18.</p>
+
+<h2 id="stack">Stack</h2>
+
+<ul>
+  <li><strong>Onchain:</strong> Solana, Anchor (Rust), SPL Token, USDC</li>
+  <li><strong>Payments:</strong> x402 v2, Cashu (<code class="language-plaintext highlighter-rouge">cashu-ts</code>)</li>
+  <li><strong>Backend:</strong> Node.js, TypeScript, Hono, PostgreSQL</li>
+  <li><strong>Agents:</strong> Model Context Protocol, Gemini or any OpenAI-compatible model</li>
+  <li><strong>Chain data:</strong> QuickNode Streams</li>
+</ul>
+
+<h2 id="team">Team</h2>
+
+<ul>
+  <li><strong>Brock Benton:</strong> idea and engineering lead</li>
+  <li><strong><a href="https://github.com/gl00mt1t4n">gl00mt1t4n</a>:</strong> engineering</li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li><a href="https://brockbenton.github.io/blindfold/">Public replay</a></li>
+  <li><a href="https://brockbenton.github.io/blindfold/vault/">Vault history</a> (live from devnet)</li>
+</ul>
+
+<h2 id="repo">Repo</h2>
+
+<p><a href="https://github.com/brockbenton/blindfold">github.com/brockbenton/blindfold</a></p>
+
+</article>
+
+    </main>
+    <footer class="site-footer">
+  <span>© 2026 Brock Benton</span>
+  <span class="links">
+    <a href="https://github.com/brockbenton">github</a>
+    <a href="https://linkedin.com/in/brockbenton">linkedin</a>
+    <a href="mailto:brockbentons@gmail.com">email</a>
+    <a href="/feed.xml">rss</a>
+  </span>
+</footer>
+
+  </div>
+  <script src="/assets/js/theme.js?v=1795410877" defer></script>
+  <script src="/assets/js/dots.js?v=1795410877" defer></script>
+</body>
+</html>

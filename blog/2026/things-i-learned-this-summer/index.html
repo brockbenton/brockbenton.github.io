@@ -15,13 +15,23 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script>
+  // Set the theme before first paint: saved choice, else system preference.
+  (() => {
+    let saved;
+    try { saved = localStorage.getItem("theme"); } catch {}
+    const system = matchMedia("(prefers-color-scheme: dark)");
+    const valid = saved === "dark" || saved === "light";
+    document.documentElement.dataset.theme = valid ? saved : system.matches ? "dark" : "light";
+  })();
+</script>
 <link rel="canonical" href="https://brockbenton.com/blog/2026/things-i-learned-this-summer/">
 <link rel="icon" href="/assets/img/favicon.svg?v=2" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=1793293795">
+<link rel="stylesheet" href="/assets/css/main.css?v=1795410877">
 <link type="application/atom+xml" rel="alternate" href="https://brockbenton.com/feed.xml" title="Brock Benton" />
 
 </head>
@@ -35,6 +45,7 @@
     <a href="https://github.com/brockbenton">github</a>
     <a href="https://linkedin.com/in/brockbenton">linkedin</a>
     <a href="mailto:brockbentons@gmail.com">email</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
     <a class="btn" href="/assets/pdf/resume/resume.pdf">resume ↗</a>
   </nav>
 </header>
@@ -88,6 +99,7 @@
 </footer>
 
   </div>
-  <script src="/assets/js/dots.js?v=1793293795" defer></script>
+  <script src="/assets/js/theme.js?v=1795410877" defer></script>
+  <script src="/assets/js/dots.js?v=1795410877" defer></script>
 </body>
 </html>

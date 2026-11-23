@@ -2,7 +2,7 @@
 layout: project
 title: Base Bets (MBC Hackathon)
 description: A peer-to-peer USDC escrow on Base that settles automatically on Polymarket outcomes, with gasless transactions
-importance: 3
+importance: 4
 ---
 
 ## Overview

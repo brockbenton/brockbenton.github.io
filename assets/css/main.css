@@ -340,6 +340,6 @@ pre code { font-size: inherit; }
 
 @media (max-width: 520px) {
   main { padding-top: 48px; }
-  .site-header nav { gap: 10px; }
+  .site-header nav { gap: 10px; font-size: 12px; }
   .row .sub { font-size: 13px; }
 }

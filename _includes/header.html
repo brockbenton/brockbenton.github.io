@@ -6,6 +6,6 @@
     <a href="https://linkedin.com/in/{{ site.author.linkedin }}">linkedin</a>
     <a href="mailto:{{ site.author.email }}">email</a>
     <button class="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
-    <a class="btn" href="{{ site.resume | relative_url }}">resume ↗</a>
+    <a class="btn" href="{{ site.resume | relative_url }}?v={{ site.time | date: '%s' }}">resume ↗</a>
   </nav>
 </header>

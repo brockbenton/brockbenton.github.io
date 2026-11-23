@@ -59,6 +59,21 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  /* Quiet the dots behind the text column. Masking the canvas, rather than
+     painting a translucent wash over it, avoids vertical banding. */
+  --fade: linear-gradient(to right,
+    #000 calc(50% - 520px),
+    rgba(0,0,0,.912) calc(50% - 480px),
+    rgba(0,0,0,.692) calc(50% - 430px),
+    rgba(0,0,0,.384) calc(50% - 370px),
+    rgba(0,0,0,.12) calc(50% - 300px),
+    rgba(0,0,0,.12) calc(50% + 300px),
+    rgba(0,0,0,.384) calc(50% + 370px),
+    rgba(0,0,0,.692) calc(50% + 430px),
+    rgba(0,0,0,.912) calc(50% + 480px),
+    #000 calc(50% + 520px));
+  -webkit-mask-image: var(--fade);
+  mask-image: var(--fade);
 }
 
 .wrap {
@@ -67,36 +82,6 @@ body {
   max-width: 640px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-/* Soft wash behind the text column so the dot grid quiets down under content.
-   Fixed to the viewport so it looks the same on every page, whatever its length. */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: calc(640px + 400px);
-  transform: translateX(-50%);
-  z-index: 1;
-  background: var(--bg);
-  opacity: 0.88;
-  /* eased stops so the edge has no visible start or end */
-  --fade: linear-gradient(to right,
-    transparent 0,
-    rgba(0,0,0,.1) 40px,
-    rgba(0,0,0,.35) 90px,
-    rgba(0,0,0,.7) 150px,
-    #000 220px,
-    #000 calc(100% - 220px),
-    rgba(0,0,0,.7) calc(100% - 150px),
-    rgba(0,0,0,.35) calc(100% - 90px),
-    rgba(0,0,0,.1) calc(100% - 40px),
-    transparent 100%);
-  -webkit-mask-image: var(--fade);
-  mask-image: var(--fade);
-  pointer-events: none;
 }
 
 a { color: inherit; text-decoration: none; }

@@ -6,14 +6,20 @@
 
   const GAP = 22;
   const RADIUS = 140;
-  const BASE = [212, 212, 208];
-  const ACCENT = [31, 77, 58];
+  let BASE, ACCENT; // from --dot and --dot-accent in main.css
 
   let w, h, dpr, cols, rows;
   let mouse = { x: -1e4, y: -1e4 };
   let strength = 0; // eases 0 → 1 while the cursor is on the page
   let target = 0;
   let frame = null;
+
+  function readColors() {
+    const css = getComputedStyle(document.documentElement);
+    const rgb = (name) => css.getPropertyValue(name).split(",").map(Number);
+    BASE = rgb("--dot");
+    ACCENT = rgb("--dot-accent");
+  }
 
   function resize() {
     dpr = window.devicePixelRatio || 1;
@@ -62,7 +68,9 @@
     if (frame === null) frame = requestAnimationFrame(tick);
   }
 
+  readColors();
   window.addEventListener("resize", resize);
+  document.addEventListener("themechange", () => { readColors(); draw(); });
   resize();
 
   // Static grid only for touch devices and reduced-motion users.

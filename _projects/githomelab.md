@@ -2,7 +2,7 @@
 layout: project
 title: Git Infrastructure with CI/CD Pipeline
 description: A self-hosted Git platform with HTTPS, CI/CD, and webhook-driven deploys, built on a repurposed desktop
-importance: 5
+importance: 6
 ---
 
 ## Overview

@@ -6,8 +6,37 @@
   --rule: #e7e7e5;
   --accent: #1f4d3a;
   --accent-soft: #e8efe9;
+  --on-accent: #fff;
+  --code-bg: #efefed;
+  --pre-bg: #f3f3f1;
+  --syn-comment: #8a8a8a;
+  --syn-literal: #7a4b1f;
+  --syn-name: #1f3a5c;
+  --dot: 212, 212, 208;
+  --dot-accent: 31, 77, 58;
+  color-scheme: light;
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* set by the inline script in head.html */
+:root[data-theme="dark"] {
+  --bg: #141414;
+  --text: #ededea;
+  --muted: #a1a19c;
+  --faint: #7d7d78;
+  --rule: #2b2b29;
+  --accent: #7cc79a;
+  --accent-soft: #1d2a22;
+  --on-accent: #141414;
+  --code-bg: #242422;
+  --pre-bg: #1b1b1a;
+  --syn-comment: #85857f;
+  --syn-literal: #d9a66f;
+  --syn-name: #8fb8e0;
+  --dot: 50, 50, 48;
+  --dot-accent: 92, 176, 124;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -73,7 +102,7 @@ body::before {
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--accent); }
 
-::selection { background: var(--accent); color: #fff; }
+::selection { background: var(--accent); color: var(--on-accent); }
 
 /* header / footer */
 
@@ -101,7 +130,22 @@ a:hover { color: var(--accent); }
   background: var(--bg);
   transition: background .15s, color .15s, border-color .15s;
 }
-.btn:hover { background: var(--accent); border-color: var(--accent); color: #fff !important; }
+.btn:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent) !important; }
+
+.theme-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
+/* names the theme it switches to; hidden until the head script runs */
+.theme-toggle::before { content: "dark"; }
+:root[data-theme="dark"] .theme-toggle::before { content: "light"; }
+:root:not([data-theme]) .theme-toggle { display: none; }
 
 .site-footer {
   display: flex;
@@ -213,6 +257,7 @@ h2 {
   font: 500 14px var(--mono);
   color: var(--muted);
 }
+:root[data-theme="dark"] .logo { background: var(--bg); }
 .logo img { width: 100%; height: 100%; object-fit: contain; }
 
 .more {
@@ -273,9 +318,9 @@ h2 {
 .prose th, .prose td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--rule); }
 
 code { font: 0.88em var(--mono); }
-:not(pre) > code { background: #efefed; padding: 1px 5px; border-radius: 4px; }
+:not(pre) > code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
 pre {
-  background: #f3f3f1;
+  background: var(--pre-bg);
   border: 1px solid var(--rule);
   border-radius: 6px;
   padding: 14px 16px;
@@ -287,13 +332,14 @@ pre {
 pre code { font-size: inherit; }
 
 /* rouge syntax highlighting, muted */
-.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #8a8a8a; font-style: italic; }
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: var(--syn-comment); font-style: italic; }
 .highlight .k, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kt, .highlight .nt { color: var(--accent); }
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .se { color: #7a4b1f; }
-.highlight .m, .highlight .mi, .highlight .mf { color: #7a4b1f; }
-.highlight .nf, .highlight .nc, .highlight .na { color: #1f3a5c; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .se { color: var(--syn-literal); }
+.highlight .m, .highlight .mi, .highlight .mf { color: var(--syn-literal); }
+.highlight .nf, .highlight .nc, .highlight .na { color: var(--syn-name); }
 
 @media (max-width: 520px) {
   main { padding-top: 48px; }
+  .site-header nav { gap: 10px; font-size: 12px; }
   .row .sub { font-size: 13px; }
 }

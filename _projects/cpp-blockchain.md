@@ -2,7 +2,7 @@
 layout: project
 title: Distributed Blockchain Network
 description: A proof-of-work blockchain built from scratch in C++ with SHA-256 mining, transaction validation, and peer-to-peer consensus
-importance: 4
+importance: 5
 ---
 
 ## Overview

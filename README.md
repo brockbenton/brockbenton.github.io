@@ -18,5 +18,6 @@ Then open http://localhost:4000.
 - `_projects/`: featured work (one markdown file each)
 - `_posts/`: blog posts
 - `assets/css/main.css`: all styles (colors and fonts are set at the top)
+- `assets/js/theme.js`: light/dark toggle (initial theme is set in `_includes/head.html`)
 - `assets/js/dots.js`: the interactive dot-grid background
 - `_news/`: parked, not built

@@ -2,7 +2,7 @@
 layout: project
 title: Augur (PBC Hackathon)
 description: A Solana lending protocol that lets you borrow USDC against prediction-market positions
-importance: 2
+importance: 3
 category: work
 ---
 

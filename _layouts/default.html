@@ -12,6 +12,7 @@
     </main>
     {% include footer.html %}
   </div>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/dots.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>

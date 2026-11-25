@@ -76,6 +76,34 @@ body {
   mask-image: var(--fade);
 }
 
+/* falling ducks, see ducks.js */
+.duck, .duck-blast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: .75;
+}
+.duck { cursor: pointer; user-select: none; }
+.duck:hover { opacity: 1; }
+.duck-blast { pointer-events: none; }
+.duck-sprite { display: block; }
+.duck-sprite, .duck-blast { image-rendering: pixelated; }
+/* terminal-rain trail: a column of fading pixels */
+.duck::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 18px;
+  width: 3px;
+  height: 45px;
+  background: repeating-linear-gradient(to top, var(--accent) 0 3px, transparent 3px 9px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  mask-image: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  pointer-events: none;
+}
+@media print { .duck, .duck-blast { display: none; } }
+
 .wrap {
   position: relative;
   z-index: 2;

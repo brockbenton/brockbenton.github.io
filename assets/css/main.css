@@ -197,6 +197,8 @@ section + section { margin-top: 64px; }
 
 .about { margin-top: 24px; }
 .about p { margin: 0 0 14px; }
+.about a { color: var(--accent); }
+.about a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 h2 {
   font: 500 12px var(--mono);
